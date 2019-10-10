@@ -1,0 +1,129 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+html,
+body {
+    width: 420px;
+    height: 600px;
+    background: url('../assets/bg.jpg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 40% 40%;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0 2px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+/*********/
+/** Header styling */
+/********/
+header.row {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*********/
+/** Tabs styling */
+/********/
+#tabsDivision{
+    width: 100%;
+    height: 70px;
+    margin: 5px 0;
+}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
+
+
+/*********/
+/** Search box styling */
+/********/
+#search{
+    width: 100%;
+    height: 70px;
+    margin: 10px 0;
+    justify-content: center
+}
+#search #searchBox{
+    height:70%;
+    border:1px solid black;
+}
+
+/*********/
+/** Body styling */
+/********/
+#myDealsContent{
+    z-index: 2;
+
+}
+#myKidContent{
+    
+z-index: 1;
+}
+.bodyContent{
+    width: 100%;
+    height:320px;
+    position: absolute;
+    left: 0;
+    top: 230px;
+    justify-content: center;
+    background: whitesmoke;
+    border: 1px solid black;;
+}
+.bodyContent div{
+    width: 90%;
+    height: 90%;
+}
+
+
+/*********/
+/** footer styling */
+/********/
+footer{
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    justify-content:center;
+    border: 1px solid black;
+}
+footer div{
+    margin: 1px;
+    border:1px solid brown;
+}
+
+
+/*********/
+/** generic styling */
+/********/
+div {
+    border: 1px solid black;
+}

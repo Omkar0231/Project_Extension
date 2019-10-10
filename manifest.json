@@ -1,0 +1,31 @@
+{
+    "name": "Tazzo",
+    "version": "1.0",
+    "description": "A Toy Recommendation Extension",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "background": {
+        "scripts": ["jquery.js","homePage/script.js"],
+        "persistent": false
+
+    },
+
+
+    "browser_action": {
+        "default_popup": "homePage/index.html",
+        "default_icon": {
+            "16": "assets/logo.png",
+            "32": "assets/logo.png",
+            "48": "assets/logo.png",
+            "128": "assets/logo.png"
+        }
+
+    },
+    "icons": {
+        "16": "assets/logo.png",
+        "32": "assets/logo.png",
+        "48": "assets/logo.png",
+        "128": "assets/logo.png"
+    },
+    "content_security_policy": "script-src 'self' ; script-src-elem 'self' https://stackpath.bootstrapcdn.com https://maxcdn.bootstrapcdn.com/ https://cdnjs.cloudflare.com https://code.jquery.com http://ajax.googleapis.com/; object-src 'self'",
+    "manifest_version": 2
+}
