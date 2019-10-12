@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,14 +46,17 @@
 
 <body>
     <header class="row">
-        <div id="brand" class="col-6">
-            <p>Brand Image</p>
+        <div id="brand" class="col-5">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Tazzo
+            </a>
         </div>
-        <div id="points" class="col-3">
-            <p>Points</p>
+        <div id="points" class="col-4">
+            $0.00 <br><span>Tazzo Gold </span>
         </div>
         <div id="account" class="col-3">
-            <p>Login</p>
+                <button type="button" class="btn btn-dark">Signup</button> Avail offers 
         </div>
     </header>
 
@@ -60,7 +65,7 @@
     <section id="tabsDivision">
         <nav class="tabs row">
 
-            <a href="#myDeals" class="active" data-toggle="tab"><i class="fa fa-gift"></i>My Deals</a>
+            <a href="#myDeals" class="active" data-toggle="tab" ><i class="fa fa-gift"></i>My Deals</a>
             <a href="#myKid" data-toggle="tab"><i class="fa fa-child"></i>For My Kid</a>
             <div class="selector"></div>
         </nav>
@@ -85,81 +90,168 @@
     <section class="row tab-content">
         <div class="col-12 tab-pane active" id="myDeals">
             <div class="section" id="Amazon-cards">
+                <div class=" row blog-card">
+                    <div class="col-4 meta">
+                        <div class="ribbon ribbon-top-left"><span>Popular</span></div>
+                        <div class="photo">
+                            <img src="https://m.media-amazon.com/images/I/81W5iT2d70L._AC_UL480_FMwebp_QL65_.jpg">
+                        </div>
+                        <div class=" ribbon-bottom-left"><span>3-12 mon</span></div>
 
-                <div class="blog-card" style="max-width: 380px; max-height: 160px; min-height: 160px;">
-                    <div class="meta">
-                        <div class="ribbon ribbon-top-left"><span> 10% Off</span></div>
-                        <div class="photo"
-                            style="background-image: url(https://rukminim1.flixcart.com/image/312/312/jt641ow0/mobile/d/w/k/mi-redmi-note-7-pro-na-original-imafe4bbyfppbnuu.jpeg?q=70) ">
+                    </div>
+                    <div class="col-8 row description">
+                        <div class="col-6">
+                            <p>LeapFrog Scoop</p>
+                            <h6> $29.82 <strike>$39.99</strike></h6>
+                            <small>The magic scooper scooasty-looking
+                                combinations while introducing</small>
+
+                        </div>
+                        <div class="col-6 discount">
+                            <a class="price">
+                                <span>25% Discount <br></span>
+                            </a>
+
+                            <ul>
+                                <h3>Skills</h3>
+                                <li><i class="fa fa-paint-brush"></i> Creativity</li>
+                                <li><i class="fa fa-laptop"></i> Intelligence</li>
+                            </ul>
                         </div>
 
-                    </div>
-                    <div class="description" style="margin-top: inherit; font-weight: 550;"><text>Kuch bhi</text><br>
-                        <text style="font-size: 12px; margin-bottom: 2px;">Original Price: </text> <strike
-                            style="font-size: 12px; margin-bottom: 2px">80</strike>
-                        <br><text style="color: #f72727; font-size: 12px; margin-bottom: 5px;">You Pay: 60</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin: 0px;">Age: 55</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin-Top: 5px; margin-bottom: 5px;">Skills:
-                            education</text>
-                        <p class="read-more"><a href="#">Read More</a></p>
-                    </div>
-                </div>
-                <div class="blog-card" style="max-width: 380px; max-height: 160px; min-height: 160px;">
-                    <div class="meta">
-                        <div class="ribbon ribbon-top-left"><span> 10% Off</span></div>
-                        <div class="photo"
-                            style="background-image: url(https://rukminim1.flixcart.com/image/312/312/jt641ow0/mobile/d/w/k/mi-redmi-note-7-pro-na-original-imafe4bbyfppbnuu.jpeg?q=70) ">
-                        </div>
 
                     </div>
-                    <div class="description" style="margin-top: inherit; font-weight: 550;"><text>Kuch bhi</text><br>
-                        <text style="font-size: 12px; margin-bottom: 2px;">Original Price: </text> <strike
-                            style="font-size: 12px; margin-bottom: 2px">80</strike>
-                        <br><text style="color: #f72727; font-size: 12px; margin-bottom: 5px;">You Pay: 60</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin: 0px;">Age: 55</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin-Top: 5px; margin-bottom: 5px;">Skills:
-                            education</text>
-                        <p class="read-more"><a href="#">Read More</a></p>
-                    </div>
                 </div>
-                <div class="blog-card" style="max-width: 380px; max-height: 160px; min-height: 160px;">
-                    <div class="meta">
-                        <div class="ribbon ribbon-top-left"><span> 10% Off</span></div>
-                        <div class="photo"
-                            style="background-image: url(https://rukminim1.flixcart.com/image/312/312/jt641ow0/mobile/d/w/k/mi-redmi-note-7-pro-na-original-imafe4bbyfppbnuu.jpeg?q=70) ">
+                <div class=" row blog-card">
+                    <div class="col-4 meta">
+                        <div class="ribbon ribbon-top-left"><span>On Sale</span></div>
+                        <div class="photo">
+                            <img src="https://m.media-amazon.com/images/I/91RaDysK8zL._AC_UL480_FMwebp_QL65_.jpg">
                         </div>
+                        <div class=" ribbon-bottom-left"><span>0-6 mon</span></div>
 
                     </div>
-                    <div class="description" style="margin-top: inherit; font-weight: 550;"><text>Kuch bhi</text><br>
-                        <text style="font-size: 12px; margin-bottom: 2px;">Original Price: </text> <strike
-                            style="font-size: 12px; margin-bottom: 2px">80</strike>
-                        <br><text style="color: #f72727; font-size: 12px; margin-bottom: 5px;">You Pay: 60</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin: 0px;">Age: 55</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin-Top: 5px; margin-bottom: 5px;">Skills:
-                            education</text>
-                        <p class="read-more"><a href="#">Read More</a></p>
-                    </div>
-                </div>
-                <div class="blog-card" style="max-width: 380px; max-height: 160px; min-height: 160px;">
-                    <div class="meta">
-                        <div class="ribbon ribbon-top-left"><span> 10% Off</span></div>
-                        <div class="photo"
-                            style="background-image: url(https://rukminim1.flixcart.com/image/312/312/jt641ow0/mobile/d/w/k/mi-redmi-note-7-pro-na-original-imafe4bbyfppbnuu.jpeg?q=70) ">
+                    <div class="col-8 row description">
+                        <div class="col-6">
+                            <p>Creative Brick Box </p>
+                            <h6> $39.82 <strike>$59.99</strike></h6>
+                            <small>Kids will spend hours engaging in pretend play with building kit. This build your
+                            </small>
+
+                        </div>
+                        <div class="col-6 discount">
+                            <a class="price">
+                                <span>28% Discount <br></span>
+                            </a>
+
+                            <ul>
+                                <h3>Skills</h3>
+                                <li><i class="fa fa-users"></i> Social</li>
+                                <li><i class="fa fa-soccer-ball-o"></i> Spatial</li>
+                            </ul>
                         </div>
 
-                    </div>
-                    <div class="description" style="margin-top: inherit; font-weight: 550;"><text>Kuch bhi</text><br>
-                        <text style="font-size: 12px; margin-bottom: 2px;">Original Price: </text> <strike
-                            style="font-size: 12px; margin-bottom: 2px">80</strike>
-                        <br><text style="color: #f72727; font-size: 12px; margin-bottom: 5px;">You Pay: 60</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin: 0px;">Age: 55</text><br>
-                        <text style="color: #d1d3d8; font-size: 12px; margin-Top: 5px; margin-bottom: 5px;">Skills:
-                            education</text>
-                        <p class="read-more"><a href="#">Read More</a></p>
+
                     </div>
                 </div>
-         
-              
+                <div class=" row blog-card">
+                    <div class="col-4 meta">
+                        <div class="ribbon ribbon-top-left"><span>Trending</span></div>
+                        <div class="photo">
+                            <img src="https://m.media-amazon.com/images/I/91AZffcFdeL._AC_UL480_FMwebp_QL65_.jpg">
+                        </div>
+                        <div class=" ribbon-bottom-left"><span>1-2 yrs</span></div>
+
+                    </div>
+                    <div class="col-8 row description">
+                        <div class="col-6">
+                            <p>LEGO DUPLO</p>
+                            <h6> $89.95 <strike>$109.95</strike></h6>
+                            <small>Build Me "Emotions" Set for Social Emotional Development by </small>
+
+                        </div>
+                        <div class="col-6 discount">
+                            <a class="price">
+                                <span>15% Discount <br></span>
+                            </a>
+
+                            <ul>
+                                <h3>Skills</h3>
+                                <li><i class="fa fa-smile-o"></i> Emotional</li>
+                                <li><i class="fa fa-book"></i> Verbal Ability</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class=" row blog-card">
+                    <div class="col-4 meta">
+                        <div class="ribbon ribbon-top-left"><span>Top Picks</span></div>
+                        <div class="photo">
+                            <img src="https://m.media-amazon.com/images/I/71L6531wZ3L._AC_UL480_FMwebp_QL65_.jpg">
+                        </div>
+                        <div class=" ribbon-bottom-left"><span>5-8 yrs</span></div>
+
+                    </div>
+                    <div class="col-8 row description">
+                        <div class="col-6">
+                            <p>TEMI Dinosaur Toy</p>
+                            <h6> $18.89 <strike>$39.99</strike></h6>
+                            <small>Jurassic adventurous journey - are you concerned about your kid gettin Give them
+                                the</small>
+
+                        </div>
+                        <div class="col-6 discount">
+                            <a class="price">
+                                <span>50% Discount <br></span>
+                            </a>
+
+                            <ul>
+                                <h3>Skills</h3>
+                                <li><i class="fa fa-smile-o"></i> Emotional</li>
+                                <li><i class="fa fa-users"></i> Social</li>
+                                <li><i class="fa fa-soccer-ball-o"></i> Spatial</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class=" row blog-card">
+                    <div class="col-4 meta">
+                        <div class="ribbon ribbon-top-left"><span>Featured</span></div>
+                        <div class="photo">
+                            <img src="https://m.media-amazon.com/images/I/81G5r7gIZlL._AC_UL480_FMwebp_QL65_.jpg">
+                        </div>
+                        <div class=" ribbon-bottom-left"><span>2-5 yrs</span></div>
+
+                    </div>
+                    <div class="col-8 row description">
+                        <div class="col-6">
+                            <p>Pack Dinosaur Vehicles </p>
+                            <h6> $45.95 <strike>$85.56</strike></h6>
+                            <small>Set Pull Back Cars with LED Light Sound Dinosaur Toys for Boys Toddlers Gds
+                                Gifts</small>
+
+                        </div>
+                        <div class="col-6 discount">
+                            <a class="price">
+                                <span>45% Discount <br></span>
+                            </a>
+
+                            <ul>
+                                <h3>Skills</h3>
+                                <li><i class="fa fa-laptop"></i> Intelligence</li>
+                                <li><i class="fa fa-book"></i> Verbal Ability</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
 
             </div>
 
@@ -173,11 +265,11 @@
 
 
     <footer class="row">
-        <div id="aboutUs" class="col-5">
-            <p>About us</p>
+        <div id="aboutUs" class="col-6">
+            <a href="http://www.funcandi.com/" ></a><i class="fa fa-info-circle" aria-hidden="true"></i>About us</a>
         </div>
-        <div id="help" class="col-5">
-            <p>Help</p>
+        <div id="help" class="col-6">
+            <p><i class="fa fa-question-circle" aria-hidden="true"></i>Help</p>
         </div>
     </footer>
 

@@ -1,6 +1,7 @@
 document.cookie = 'same-site-cookie=foo; SameSite=Lax';
 document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 $(document).ready(function () {
+    callPreloader('#myDeals',1500);
 
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
@@ -13,9 +14,12 @@ $(document).ready(function () {
     });
 
     $(".tabs").on("click", "a", function (e) {
+
         e.preventDefault();
         $('.tabs a').removeClass("active");
         $(this).addClass('active');
+        var href = $(this).attr('href');
+        callPreloader(href,500);
         var activeWidth = $(this).innerWidth();
         var itemPos = $(this).position();
         $(".selector").css({
@@ -24,3 +28,10 @@ $(document).ready(function () {
         });
     });
 });
+function callPreloader(element,time){
+    var content=$(element).html();
+    $(element).html("<i class='fa fa-spinner fa-spin preloader'></i>");
+    setTimeout(function(){
+        $(element).html(content);
+    },time);
+}

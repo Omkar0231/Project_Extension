@@ -17,26 +17,126 @@ body {
     justify-content: center;
     font-family: 'Roboto', sans-serif;
 }
-
-
+@keyframes fadeIn {
+    from {
+       opacity:0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+.preloader{
+    color: #8200f4e1 ;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    font-size: 36px;
+}
 /*********/
 /** Header styling */
 /********/
 header.row {
     width: 100%;
-    height: 80px;
+    height: 70px;
     margin: 0;
     padding: 0;
+    background: #fff;
+    box-shadow: 0 0 5px 0 rgb(177, 175, 175);;
+    background:linear-gradient(45deg, #05a9e0c2 0%, #8200f4a4 100%);
+    text-align: center;
+ 
 }
+header #brand a{
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 5;
+    left: 5;
+    transition: 0.2s all ease;
 
+}
+header #brand a::after{
+    content:"";
+    background:#fff;
+    position: absolute;
+    top: 78%;
+    left:50%;
+    height: 2px;
+    width: 30px;
+    transition: 0.3s all ease;
 
+  }
+  
+header #brand img{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+header #brand:hover a,img{
+    opacity: 0.8;
+    transition: 0.2s all ease;
+}
+header #brand:hover a::after{
+    content:"";
+    background:#fff;
+    position: absolute;
+    top: 78%;
+    left:4%;
+    height: 2px;
+    width: 120px;
+    transition: 0.3s all ease;
+}
+header #points{
+    color: #fff;
+    ;
+    font-size: 1em;
+    top: 15px ;
+    line-height: 15px;
+    text-align: center;
+}
+header #points span{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+header #points::after{
+    content: "";
+    background-color: rgb(250, 246, 246);
+    position: absolute;
+    width: 2px;
+    height: 35px;
+    top:0;
+    left:100%;
+    display: block;
+    z-index: 10000;
+}
+header #account{
+    color: #fff;
+    font-size: 12px;
+}
+header #account button{
+    position: relative;
+    border-radius: 30px;
+    right: 4;
+    top: 5;
+    margin-bottom: 2px;;
+    border: 2px solid #8200f4a4 ;
+    background: transparent;
+    transition: 0.3s all ease;
+}
+header #account button:hover{
+    background:linear-gradient(45deg, #05a9e09a 0%, #8200f47a 100%);
+    transition: 0.3s all ease;
+
+}
 /*********/
 /** Tabs styling */
 /********/
 #tabsDivision {
     width: 98%;
     height: 45px;
-    margin: 5px auto;
+    margin: 10px auto;
     justify-content: center;
 }
 
@@ -94,9 +194,9 @@ header.row {
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     background: #05abe0;
-    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -moz-linear-gradient(45deg, #05a9e0c2 0%, #8200f4a4 100%);
+    background: -webkit-linear-gradient(45deg, #05a9e0c2 0%, #8200f4a4 100%);
+    background: linear-gradient(45deg, #05a9e0c2 0%, #8200f4a4 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
 }
 
@@ -106,7 +206,7 @@ header.row {
 #search {
     width: 98%;
     height: 40px;
-    margin: 8px auto;
+    margin: 5px auto;
     justify-content: center;
 
 }
@@ -143,14 +243,18 @@ header.row {
 
 .tab-content {
     overflow: scroll;
-    height: 370px;
+    height: 380px;
     width: 98%;
     overflow-x: hidden;
     background: #f6f7f9;
     margin: 5px auto;
     justify-content: center;
-}
+    animation: 2s ease 0s 1 fadeIn;
 
+}
+.tab-pane{
+    padding: 0 5px;
+}
 .tab-content::-webkit-scrollbar {
     display: none;
 }
@@ -159,7 +263,8 @@ header.row {
 /** footer styling */
 /********/
 footer {
-    height: 40px;
+    height: 35px;
+    background: rgba(230, 228, 228, 1);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -167,14 +272,35 @@ footer {
     margin: 0;
     padding: 0;
     justify-content: center;
-    border: 1px solid black;
+    z-index: 20;
 }
 
 footer div {
-    margin: 1px;
-    border: 1px solid brown;
-}
+    text-align: center;
+    height: 100%;
+    line-height: 35px;
+    transition: 0.3s all ease;
 
+}
+footer div p a, a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.801);
+}
+footer #aboutUs::after{
+    content: "";
+  background-color: rgb(165, 157, 157);
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  bottom:0;
+  left:100%;
+  display: block;
+  z-index: 10000;
+}
+footer div:hover{
+    background: rgb(167, 164, 164,0.5);
+    transition: 0.3s all ease;
+}
 
 /*********/
 /** generic styling */

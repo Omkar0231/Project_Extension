@@ -1,5 +1,5 @@
 {
-    "name": "Tazzo",
+    "name": "Tazzo: Toys for your Kid",
     "version": "1.0",
     "description": "A Toy Recommendation Extension",
     "permissions": ["activeTab", "declarativeContent", "storage"],
