@@ -16,7 +16,7 @@
   background-image:linear-gradient( #05a9e0c2, #8200f4a4);
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 12px/1 'Lato', sans-serif;
+  font: 700 12px/1 'Poppins', sans-serif;
   text-shadow: 0 1px 1px rgba(0,0,0,.2);
   text-transform: uppercase;
   text-align: center;
@@ -26,6 +26,10 @@
 .ribbon-top-left {
   top: -15px;
   left: -15px;
+}
+.ribbon-top-left span{
+  background:#fe4949ea
+
 }
 .ribbon-top-left::before,
 .ribbon-top-left::after {
@@ -51,17 +55,18 @@
   overflow: hidden;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 4;
   z-index: 10;
-  border-top-left-radius: 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 2px;
 }
 .ribbon-bottom-left span{
   display: block;
   padding: 5px 0;
-  background-image: linear-gradient( #05a9e0c2, #8200f4a4);
+  background:#6497b1;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 10px/1 'Lato', sans-serif;
+  font: 700 10px/1 'Poppins', sans-serif;
   text-shadow: 0 1px 1px rgba(0,0,0,.2);
   text-transform: capitalize;
   text-align: center;

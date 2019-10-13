@@ -1,0 +1,182 @@
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+  box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5%;
+  background: #fff;
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 160px;
+  cursor: pointer;
+  font-size: 15px;
+
+}
+
+.blog-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.blog-card .meta {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  
+}
+
+.blog-card .photo {
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+  display: flex;
+  justify-content: center;
+  margin: auto auto;
+  padding: 10% 5%;
+  max-height: 100%;
+}
+
+.blog-card .photo img {
+  width: 80%;
+  max-height:80%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.blog-card .description {
+  font-weight: 550;
+  position: relative;
+  padding: 7px 7px 5px 9px;
+  z-index: 5;
+  min-height: 100%;
+}
+
+.blog-card .description div {
+  padding: 0;
+  font-size: 15px;
+
+}
+
+.blog-card .description div p {
+  margin: 5px 0 8px 0;
+  font-size: 0.9em;
+}
+
+.blog-card .description div h6 {
+  color: #6497b1;
+  font-size: 1.1em;
+  font-weight: bold
+}
+
+.blog-card .description div h6 strike {
+  text-decoration: line-through;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #565757;
+}
+
+.blog-card .description div small {
+  margin-top: 100px;
+  width: 20px;
+  font-size: 0.7em;
+  color: rgb(146, 144, 144);
+}
+
+.blog-card .description .discount {
+  padding: 0;
+  padding-right: 15px;
+}
+
+.blog-card .description .discount .price {
+  border: 2px solid #6497b1;
+  border-radius: 40px;
+  box-sizing: border-box;
+  display: block;
+  padding:0 5px;
+  position: relative;
+  text-decoration: none;
+  text-transform: capitalize;
+  z-index: 2;
+  width: 100px;
+  height:  30px;
+  left: 10px;
+  margin: 10px 5px 0 0;
+  color: #6497b1;
+  font-size: 0.8rem;
+  transition: all .1s ease;
+
+
+}
+
+.blog-card .description .discount .price:hover  {
+  background: #6497b1;
+  color: #fff;
+  transition: all .1s ease;
+}
+
+.blog-card .description .discount .price span {
+  align-items: center;
+  background: transparent;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: all .1s ease;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.blog-card .description .discount .price:hover  span {
+  display: none;
+}
+.blog-card .description .discount .price:hover::after{
+  content: 'Buy Now';
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: all .1s ease;
+  width: 100%;
+  margin: 0;
+  padding-top:4px;
+}
+.blog-card .description .discount ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8em;
+  position: relative;
+  margin: 30px 0 0 15px;
+  color: #565757;
+  ;
+}
+
+
+.blog-card .description .discount ul li {
+  transition: 0.2s all ease;
+  color: rgb(70, 67, 67);
+  margin-bottom: 5px;
+  padding: 0 1px;
+  width: fit-content;
+}
+
+.blog-card .description .discount ul:hover  li {
+  border-radius: 4px;
+  transition: 0.2s all ease;
+  background: #6497b1;
+  color: white;
+
+}
+
