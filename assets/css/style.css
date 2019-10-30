@@ -516,7 +516,10 @@ vertical-align: middle;
     background: #6497b1 ;
 }
 
-
+.center {
+    position: relative;
+    left: 12%;
+}
 
 #myKid .control__indicator:after {
     content: '';
@@ -553,6 +556,10 @@ vertical-align: middle;
 
 #myKid .control--radio input:disabled~.control__indicator:after {
     background: #ccc;
+}
+
+#icon {
+    margin-right: 6px;
 }
 
 /*------GENDER----*/
@@ -634,7 +641,9 @@ h3 {
     padding: 0 auto;
     border-bottom: 1px solid rgb(211, 211, 210);
     margin: 5px auto;
-    background: rgba(248, 246, 246, 0.849);
+    box-shadow: 3px 3px 4px 0px grey;
+    border-right: 1px solid rgb(211, 211, 210);
+    border-left: 1px solid rgb(211, 211 ,210);
     border-radius: 10px;
     padding: 10px 5px;
     width: 340px;
