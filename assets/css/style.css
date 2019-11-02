@@ -94,13 +94,12 @@ header #brand img {
 
 header #brand:hover a,
 img {
-    color: #011f4b;
     transition: 0.2s all ease;
 }
 
 header #brand:hover a::after {
     content: "";
-    background:#011f4b;
+    background:#f9fafc;
     position: absolute;
     top: 78%;
     left: 4%;

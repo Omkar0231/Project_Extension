@@ -27,6 +27,6 @@
         "48": "assets/images/logo.png",
         "128": "assets/images/logo.png"
     },
-    "content_security_policy": "script-src 'self' ; script-src-elem 'self' http://netdna.bootstrapcdn.com https://stackpath.bootstrapcdn.com http://code.jquery.com/ https://maxcdn.bootstrapcdn.com/ http://maxcdn.bootstrapcdn.com/ https://cdnjs.cloudflare.com http://cdnjs.cloudflare.com https://code.jquery.com http://ajax.googleapis.com/; object-src 'self'",
+    "content_security_policy": "script-src 'self' ; script-src-elem 'self' https://gettoys.herokuapp.com/ http://netdna.bootstrapcdn.com https://stackpath.bootstrapcdn.com http://code.jquery.com/ https://maxcdn.bootstrapcdn.com/ http://maxcdn.bootstrapcdn.com/ https://cdnjs.cloudflare.com http://cdnjs.cloudflare.com https://code.jquery.com http://ajax.googleapis.com/; object-src 'self'",
     "manifest_version": 2
 }

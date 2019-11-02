@@ -75,7 +75,7 @@ $(document).ready(function () {
                 $(this).data({
                     'value': parseInt(ui.value)
                 });
-                
+
                 if (ui.values[1] === 10000) {
                     if (!$('.range-alert').hasClass('active')) {
                         $('.range-alert').addClass('active');
@@ -98,6 +98,35 @@ $(document).ready(function () {
         callPreloader('#myDeals', 500);
     });
 
+
+
+
+
+    // const userAction = async () => {
+    //     const response = await fetch('https://gettoys.herokuapp.com/get');
+    //     const myJson = await response.json(); //extract JSON from the http response
+    //     console.log(myJson)
+    //   }
+    //   userAction();
+
+
+    var settings = {
+        'cache': false,
+        'dataType': "jsonp",
+        "async": true,
+        "crossDomain": true,
+        "url": "https://gettoys.herokuapp.com/get",
+        "method": "GET",
+        "headers": {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+
+    });
 });
 
 
@@ -109,19 +138,19 @@ function callPreloader(element, time) {
     }, time);
 }
 
-var slideIndex = 1;
-showSlides(slideIndex);
+// var slideIndex = 1;
+// showSlides(slideIndex);
 
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1
-    }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-}
+// function showSlides() {
+//     var i;
+//     var slides = document.getElementsByClassName("mySlides");
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//     }
+//     slideIndex++;
+//     if (slideIndex > slides.length) {
+//         slideIndex = 1
+//     }
+//     slides[slideIndex - 1].style.display = "block";
+//     setTimeout(showSlides, 3000); // Change image every 3 seconds
+// }
