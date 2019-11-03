@@ -1,13 +1,13 @@
 document.cookie = 'same-site-cookie=foo; SameSite=Lax';
 document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 $(document).ready(function () {
-    $('#toLogin').prop("disabled", true);
+    $('#toLogin').prop("disabled", false);
 
     renderProducts();
     $('.startButton').on('click', function () {
         $('#getstarted').html("")
         $('#getstarted').css('display', 'none');
-        $('#toLogin').prop("disabled", false);
+        $('#toLogin').prop("enable", true);
 
         callPreloader('#myDeals', 2000);
 
