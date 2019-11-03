@@ -125,3 +125,11 @@ function showSlides() {
     slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
+
+/* Profile Photo DropDown */
+
+document.querySelector('.mini-photo-wrapper').addEventListener('click', function() {
+    document.querySelector('.menu-container').classList.toggle('active');
+  });
+
+/* Profile Photo DropDown */
