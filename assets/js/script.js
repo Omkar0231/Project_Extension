@@ -110,9 +110,137 @@ $(document).ready(function () {
     //     <span>Buy Now <br></span>
     // </a>`);
     // });
+    var typingTimer; //timer identifier
+    var doneTypingInterval = 2000; //time in ms, 5 second for example
+    
 
+    //on keyup, start the countdown
+    $("#searched").keyup(function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    });
+
+    //on keydown, clear the countdown 
+    $("#searched").on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
+
+    //user is "finished typing," do something
+    function doneTyping() {
+        let input=$("#searched").val();
+        renderSearchResult(input);
+        //do something
+    }
+    $("#searched").keyup(function () {
+        let input = $(this).val();
+        renderSearchResult(input);
+    })
 
 });
+
+function renderSearchResult(input) {
+    var xhttp = new XMLHttpRequest();
+    $("#Amazon-cards").html("");
+    xhttp.open("GET", "https://gettoys.herokuapp.com/get/description/" + input, true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+            var alreadyPresent = $('#Amazon-cards').html();
+
+            var response = xhttp.responseText;
+            data = JSON.parse(response);
+            data = data["product"];
+            dataArray = []
+            for (var i in data) {
+                dataArray.push(data[i])
+            }
+            // //Generate Cards
+            var noOfProducts = dataArray.length;
+            //Select cards to show
+
+
+            document.getElementById("Amazon-cards").innerHTML = "";
+            var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
+
+            for (var i = 0; i < noOfProducts; i++) {
+                // var productIndex = dataArray[i];
+                let product = dataArray[i];
+                console.log(product)
+                let price = Number(product["price"]);
+                let discount = Math.floor(Math.random() * 50 + 5);
+                let discountedPrice = Math.floor(price - (price * discount) / 100);
+
+
+                var htmll = `<div class=' row blog-card'>
+                <div class='col-4 meta'>
+                    <div class='ribbon ribbon-top-left'><span>`
+                htmll += categories[Math.floor(Math.random() * 5 + 0)];
+                htmll += `</span></div>
+                    <div class='photo'>
+                        <img
+                            src='`;
+                htmll += product['image_link'];
+                htmll += ` '>
+                    </div>
+                    <div class=' ribbon-bottom-left'><span>`;
+                htmll += product["age_group"][0] + "-" + product["age_group"][1];
+                htmll += ` years</span></div>
+            
+                </div>
+                <div class='col-8 row description'>
+                    <div class='col-6'>
+                        <p>`;
+                let name = product["title"];
+                var nameArr = name.split(" ", 2);
+                name = nameArr.join(" ");
+                htmll += name;
+                htmll += `</p>
+                        <h6>&#8377;`;
+                htmll += discountedPrice;
+                htmll += `  <strike>&#8377;`;
+                htmll += price;
+                htmll += `</strike></h6>
+                        <small>`;
+                htmll += product['description'].substring(0, 80);
+                htmll += ` </small>
+            
+                    </div>
+                    <div class='col-6 discount'>
+                        <a class='price' href='`;
+                htmll += product['amazon_link'];
+                htmll += `' >
+                            <span>`;
+                htmll += discount;
+                htmll += `% Discount <br></span>
+                        </a>
+            
+                        <ul>
+            
+                            <li>`;
+                let skill = product['skills_tags'][0];
+                skill = skill.charAt(0).toUpperCase() + skill.slice(1);
+                htmll += skill
+                htmll += `</li>
+                            <li> `;
+                skill = product['skills_tags'][1];
+                skill = skill.charAt(0).toUpperCase() + skill.slice(1);
+                htmll += skill;
+                htmll += `</li>
+                        </ul>
+                    </div>
+            
+            
+                </div>
+            </div>`;
+                document.getElementById("Amazon-cards").innerHTML += htmll;
+                document.getElementById("Amazon-cards").innerHTML += alreadyPresent;
+
+            }
+
+        }
+    };
+}
 
 function renderProducts() {
     var xhttp = new XMLHttpRequest();
@@ -230,12 +358,12 @@ function callPreloader(element, time) {
         $(element).html(content);
         if (element.match("#myDeals")) {
             console.log("true")
-            if (cardsContent==='') {
+            if (cardsContent === '') {
                 $(element).html(content);
                 renderProducts()
             } else
                 $(element).html(cardsContent);
-                cardsContent="";
+            cardsContent = "";
             //renderProducts();
         }
 
