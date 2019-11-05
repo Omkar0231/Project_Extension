@@ -2,17 +2,17 @@ document.cookie = 'same-site-cookie=foo; SameSite=Lax';
 document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 $(document).ready(function () {
     
-    // $('#toLogin').prop("disabled", true);
+     $('#toLogin').prop("disabled", true);
 
-    // renderProducts();
-    // $('.startButton').on('click', function () {
-    //     $('#getstarted').html("")
-    //     $('#getstarted').css('display', 'none');
-    //     $('#toLogin').prop("disabled", false);
+    
+    $('.startButton').on('click', function () {
+        $('#getstarted').html("")
+        $('#getstarted').css('display', 'none');
+        $('#toLogin').prop("disabled", false);
+        renderProducts();
+        //callPreloader('#myDeals', 2000);
 
-    //     callPreloader('#myDeals', 2000);
-
-    // });
+    });
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
     var selector = $(".tabs").find(".selector");
@@ -65,7 +65,7 @@ $(document).ready(function () {
         window.open(target)
     });
     var typingTimer; //timer identifier
-    var doneTypingInterval = 2000; //time in ms, 5 second for example
+    var doneTypingInterval = 5000; //time in ms, 5 second for example
     
 
     //on keyup, start the countdown
@@ -137,7 +137,7 @@ $(document).ready(function () {
 function renderSearchResult(input) {
     var xhttp = new XMLHttpRequest();
     $("#Amazon-cards").html("");
-    xhttp.open("GET", "https://gettoys.herokuapp.com/get/description/" + input, true);
+    xhttp.open("GET", "https://gettoys.herokuapp.com/get/content/" + input, true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -239,6 +239,7 @@ function renderSearchResult(input) {
 }
 
 function renderProducts() {
+    console.log("heere")
     var xhttp = new XMLHttpRequest();
     $("#Amazon-cards").html("<i class='fa fa-spinner fa-spin preloader'></i>");
     xhttp.open("GET", "https://gettoys.herokuapp.com/get", true);
@@ -374,11 +375,19 @@ function showSlides() {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
     if (slideIndex >= slides.length) {
         slideIndex = 0;
     }
     slides[slideIndex].style.display = "block";
     slideIndex++;
-
     setTimeout(showSlides, 2400); 
 }
+
+/* Profile Photo DropDown */
+
+document.querySelector('.mini-photo-wrapper').addEventListener('click', function() {
+    document.querySelector('.menu-container').classList.toggle('active');
+  });
+
+

@@ -3,13 +3,20 @@
     "short_name": "Tazzo",
     "version": "0.0.0.2",
     "description": "A Toy Recommendation Engine",
-    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjvPw8n5zCFARCdoJv1fly7s0vr1Cpe/5P+eOJTOqFmEeiY093ZwmuCLtuF38VBVy0NT60HfgGntyvv8wJT/f9FWrjm5XO7vPSWkiAaT994zlO6dSA5Xr+R9uFO8BYDSiddCnMjFfAzahLjzSogrP/jjqsBirvRgPyv3mY0rdWXKd1oofy8XhE9wCCWI+gxfRNmiVnBe83fCmkNI7nAEmKvzqQwPEdpa0zFhpdxI1GLD5/TEQre0iKODEM23+AloeJUq8WlpB9wDLFmCDlf6DYAcehcPxfELLy1RtKXbHLo8965o5GQOr9SB2Jj9MfzQDgOucmyEMao3X/8ahIlZ7wwIDAQAB",
+    "oauth2": {
+        "client_id": "1065423198919-r435tphj9usv6npu1js0b8tf04814tfo.apps.googleusercontent.com",
+        "scopes":["https://www.googleapis.com/auth/contacts.readonly", "https://www.googleapis.com/auth/userinfo.profile"]
+      },
+    
+    "permissions": ["activeTab", "declarativeContent", "storage","identity", "https://accounts.google.com/*", "https://www.googleapis.com/*","https://graph.facebook.com/"],
     "background": {
         "scripts": ["assets/js/jquery.js","assets/js/script.js"],
         "persistent": false
 
     },
 
+ 
 
     "browser_action": {
         "default_popup": "homePage/index.html",

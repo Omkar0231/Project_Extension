@@ -35,16 +35,19 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/styleCard.css">
     <link rel="stylesheet" href="../assets/css/styleRibbon.css">
+    
+
+
+    
+    
 
 </head>
 
 <body>
-    <!-- <div id="getstarted">
-        <button class="startButton">Let's Get Started</button>
-    </div> -->
 
-    <!-- <div id="getstarted" class="slideshow-container">
-                <!-- Full-width images with number and caption text 
+
+    <div id="getstarted" class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
     <h1 id="tazzo">Tazzo</h1>
     <div class="mySlides ">
         <img src="../assets/images/indexBanner.jpg">
@@ -56,7 +59,7 @@
         <img src="../assets/images/indexBanner.jpg">
     </div>
     <button class="startButton">Let's Get Started</button>
-    </div> -->
+    </div>
 
     <header class="row">
         <div id="brand" class="col-5">
@@ -68,9 +71,27 @@
         <div id="points" class="col-4">
             $0.00 <br><span>Tazzo Gold </span>
         </div>
-        <div id="account" class="col-3">
-            <button type="button" class="btn btn-dark" id="toLogin">Signup</button> Avail offers
+        <div id="account" class="col-3 ">
+            <button type="button" class="btn btn-dark"  id="toLogin">Signup</button> Avail offers
         </div>
+
+        <div class="user-menu-wrap">
+                <a class="mini-photo-wrapper" href="#">
+                <div id="profile_photo" class="col-3" hidden>
+                     <!-- <img src="../assets/images/logo.png"> -->
+                     <h1 id="login_user_name"></h1>
+                </div></a>
+                    <div class="menu-container">
+                  <ul class="user-menu">
+                    <li class="user-menu__item" id="revoke"><a class="user-menu-link" href="#">Sign Out</a></li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+        
+        
     </header>
 
 
@@ -240,17 +261,20 @@
                 </form>
             </div>
         </div>
+
+        
     </section>
 
     <section id="login">
         <div>
-            <button class="loginBtn loginBtn--facebook">
+            <button id="facebookbtn"  class="loginBtn loginBtn--facebook">
                 Login with Facebook
             </button>
             <br>
-            <button class="loginBtn loginBtn--google">
+            <button id="gmailbtn" class="loginBtn loginBtn--google">
                 Login with Google
             </button>
+            
         </div>
 
     </section>
@@ -265,6 +289,8 @@
         </div>
     </footer>
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/oauth.js"></script>
+    <!-- <script src="../assets/js/sample_support.js"></script> -->
 
 </body>
 
