@@ -1,7 +1,7 @@
 {
     "name": "Tazzo: Toys for your Kid",
     "short_name": "Tazzo",
-    "version": "0.0.0.1",
+    "version": "0.0.0.2",
     "description": "A Toy Recommendation Engine",
     "permissions": ["activeTab", "declarativeContent", "storage"],
     "background": {

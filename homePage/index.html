@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -27,8 +29,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
     <script src="../assets/js/jquery-ui.js"></script>
 
@@ -91,7 +91,8 @@
     <section id="search" class="row">
         <!-- Search form -->
         <div class="form-inline active-cyan-4 col-12">
-            <input class="form-control form-control-sm " id="searched" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control form-control-sm " id="searched" type="text" placeholder="Search"
+                aria-label="Search">
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"
                     aria-hidden="true"></i></span>
         </div>
@@ -174,24 +175,16 @@
 
                     <h3>Price</h3>
                     <div class="col-12 price-slider">
-                        <div class="wrapper">
-                            <div class="container">
-
-                                <div class="slider-wrapper">
-                                    <div id="slider-range"></div>
-
-                                    <div class="range-wrapper">
-                                        <div class="range"></div>
-                                        <div class="range-alert">+</div>
-                                    </div>
-
-                                    <div class="marker marker-0">$ 0</div>
-                                    <div class="marker marker-25">$ 25</div>
-                                    <div class="marker marker-50">$ 50</div>
-                                    <div class="marker marker-75">$ 75</div>
-                                    <div class="marker marker-100">$ 100+</div>
-                                </div>
-                            </div>
+                        <div class="range-slider"><span>from
+                                <input type="number" value="25000" min="0" max="120000" /> to
+                                <input type="number" value="70000" min="0" max="120000" /></span>
+                            <input value="25000" min="0" max="120000" step="500" type="range" />
+                            <input type="range" id="cowbell"  min="0" max="120000" value="70000"
+                                step="500">
+                            <svg width="100%" height="24">
+                                <line x1="4" y1="0" x2="300" y2="0" stroke="#444" stroke-width="12"
+                                    stroke-dasharray="1 28"></line>
+                            </svg>
                         </div>
                     </div>
 
@@ -265,13 +258,12 @@
 
     <footer class="row">
         <div id="aboutUs" class="col-6">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>About us
+            <i class="fa fa-info-circle" aria-hidden="true"></i> About us
         </div>
         <div id="help" class="col-6">
-            <p><i class="fa fa-question-circle" aria-hidden="true"></i>Help</p>
+            <p><i class="fa fa-question-circle" aria-hidden="true"></i> Help</p>
         </div>
     </footer>
-
     <script src="../assets/js/script.js"></script>
 
 </body>

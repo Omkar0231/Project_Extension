@@ -1,17 +1,18 @@
 document.cookie = 'same-site-cookie=foo; SameSite=Lax';
 document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 $(document).ready(function () {
-    $('#toLogin').prop("disabled", true);
+    
+    // $('#toLogin').prop("disabled", true);
 
-    renderProducts();
-    $('.startButton').on('click', function () {
-        $('#getstarted').html("")
-        $('#getstarted').css('display', 'none');
-        $('#toLogin').prop("disabled", false);
+    // renderProducts();
+    // $('.startButton').on('click', function () {
+    //     $('#getstarted').html("")
+    //     $('#getstarted').css('display', 'none');
+    //     $('#toLogin').prop("disabled", false);
 
-        callPreloader('#myDeals', 2000);
+    //     callPreloader('#myDeals', 2000);
 
-    });
+    // });
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
     var selector = $(".tabs").find(".selector");
@@ -28,7 +29,7 @@ $(document).ready(function () {
         $('.tabs a').removeClass("active");
         $(this).addClass('active');
         var href = $(this).attr('href');
-        callPreloader(href, 1500);
+        callPreloader(href, 500);
 
         var activeWidth = $(this).innerWidth();
         var itemPos = $(this).position();
@@ -51,65 +52,18 @@ $(document).ready(function () {
         }
     });
 
-
-    $(function () {
-
-        $('#slider-range').slider({
-            range: true,
-            min: 0,
-            max: 100,
-            step: 10,
-            values: [10, 30]
-        });
-
-        $('.ui-slider-range').append($('.range-wrapper'));
-
-        $('.range').html('<span class="range-value">$ ' + $('#slider-range').slider("values", 0).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span><span class="range-divider"></span><span class="range-value">$ ' + $("#slider-range").slider("values", 1).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span>');
-        $('.ui-slider-handle, .ui-slider-range').on('mousedown', function () {
-            $('.gear-large').addClass('active');
-        });
-
-
-        $('#slider-range').slider({
-            slide: function (event, ui) {
-
-
-                $('.range').html('<span class="range-value">$ ' + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span><span class="range-divider"></span><span class="range-value">$ ' + ui.values[1].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span>');
-
-                var previousVal = parseInt($(this).data('value'));
-
-                $(this).data({
-                    'value': parseInt(ui.value)
-                });
-
-                if (ui.values[1] === 10000) {
-                    if (!$('.range-alert').hasClass('active')) {
-                        $('.range-alert').addClass('active');
-                    }
-                } else {
-                    if ($('.range-alert').hasClass('active')) {
-                        $('.range-alert').removeClass('active');
-                    }
-                }
-            }
-        });
-
-        $('.range, .range-alert').on('mousedown', function (event) {
-            event.stopPropagation();
-        });
-
-    });
-
+    
+    
     $('#submitButton').on('click', function () {
         callPreloader('#myDeals', 500);
     });
 
 
-    // $('.price').hover(function(){
-    //     $(this).html(`<a class='price' href='https://singhrohaajay.co'> 
-    //     <span>Buy Now <br></span>
-    // </a>`);
-    // });
+    $('.price .price::after').on('click',function(){
+        console.log("h")
+        let target = (this).attr('href');
+        window.open(target)
+    });
     var typingTimer; //timer identifier
     var doneTypingInterval = 2000; //time in ms, 5 second for example
     
@@ -131,13 +85,55 @@ $(document).ready(function () {
         renderSearchResult(input);
         //do something
     }
-    $("#searched").keyup(function () {
-        let input = $(this).val();
-        renderSearchResult(input);
+    // $("#searched").keyup(function () {
+    //     let input = $(this).val();
+    //     renderSearchResult(input);
+    // })
+    $('#cowbell').on('click',function(){
+        console.log("hello")
     })
-
 });
+(function() {
+    var parent = document.querySelector(".range-slider");
+    if (!parent) return;
+    
+    var rangeS = parent.querySelectorAll("input[type=range]"),
+            numberS = parent.querySelectorAll("input[type=number]");
 
+    rangeS.forEach(function(el) {
+        el.oninput = function() {
+            var slide1 = parseFloat(rangeS[0].value),
+                    slide2 = parseFloat(rangeS[1].value);
+                    console.log("hello")
+
+            if (slide1 > slide2) {
+                [slide1, slide2] = [slide2, slide1];
+                // var tmp = slide2;
+                // slide2 = slide1;
+                // slide1 = tmp;
+            }
+
+            numberS[0].value = slide1;
+            numberS[1].value = slide2;
+        };
+    });
+
+    numberS.forEach(function(el) {
+        el.oninput = function() {
+            var number1 = parseFloat(numberS[0].value),
+                    number2 = parseFloat(numberS[1].value);
+
+            if (number1 > number2) {
+                var tmp = number1;
+                numberS[0].value = number2;
+                numberS[1].value = tmp;
+            }
+
+            rangeS[0].value = number1;
+            rangeS[1].value = number2;
+        };
+    });
+})();
 function renderSearchResult(input) {
     var xhttp = new XMLHttpRequest();
     $("#Amazon-cards").html("");
@@ -315,11 +311,11 @@ function renderProducts() {
                     <div class='col-6 discount'>
                         <a class='price' href='`;
                 htmll += product['amazon_link'];
-                htmll += `' >
-                            <span>`;
-                htmll += discount;
-                htmll += `% Discount <br></span>
-                        </a>
+                htmll += `' >`
+                //             <span>`;
+                // htmll += discount;
+                // htmll += `% Discount <br></span>
+                   htmll+=`     </a>
             
                         <ul>
             
@@ -339,7 +335,7 @@ function renderProducts() {
             
                 </div>
             </div>`;
-                document.getElementById("Amazon-cards").innerHTML += htmll;
+              //  document.getElementById("Amazon-cards").innerHTML += htmll;
             }
 
         }
@@ -366,28 +362,23 @@ function callPreloader(element, time) {
             cardsContent = "";
             //renderProducts();
         }
-
-
-
-
-
-
     }, time);
 }
 
-// var slideIndex = 1;
-// showSlides(slideIndex);
+var slideIndex = 0;
+showSlides();
 
-// function showSlides() {
-//     var i;
-//     var slides = document.getElementsByClassName("mySlides");
-//     for (i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//     }
-//     slideIndex++;
-//     if (slideIndex > slides.length) {
-//         slideIndex = 1
-//     }
-//     slides[slideIndex - 1].style.display = "block";
-//     setTimeout(showSlides, 3000); // Change image every 3 seconds
-// }
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+    slides[slideIndex].style.display = "block";
+    slideIndex++;
+
+    setTimeout(showSlides, 2400); 
+}

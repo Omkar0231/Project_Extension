@@ -59,7 +59,7 @@ header.row {
     background: #fff;
     box-shadow: 0 0 5px 0 rgb(177, 175, 175);
     ;
-    background: #6497b1 ;
+    background: #6497b1;
     text-align: center;
 
 }
@@ -69,7 +69,7 @@ header #brand a {
     font-size: 30px;
     position: absolute;
     top: 3;
-    left:20;
+    left: 20;
     transition: 0.2s all ease;
 
 }
@@ -99,7 +99,7 @@ img {
 
 header #brand:hover a::after {
     content: "";
-    background:#f9fafc;
+    background: #f9fafc;
     position: absolute;
     top: 78%;
     left: 4%;
@@ -148,23 +148,25 @@ header #account button {
     margin-bottom: 10px;
     background: transparent;
     transition: 0.3s all ease;
-    height: 30px;;
+    height: 30px;
+    ;
     line-height: 25px;
-    text-align:center; 
-    vertical-align:middle;
+    text-align: center;
+    vertical-align: middle;
     padding: 0 6px;
 }
 
 header #account button:hover {
-    background:#011f4b;
+    background: #011f4b;
     transition: 0.3s all ease;
     border: none;
 
 }
-header #account button:active{
-    border:none;
+
+header #account button:active {
+    border: none;
     box-shadow: unset;
-} 
+}
 
 /*********/
 /** Tabs styling */
@@ -268,7 +270,7 @@ header #account button:active{
 
 .active-cyan input[type=text] {
     border-bottom: 1px solid #6497b1;
-    box-shadow: 0 1px 0 0 #6497b1   ;
+    box-shadow: 0 1px 0 0 #6497b1;
 }
 
 .active-cyan .fa,
@@ -284,7 +286,7 @@ header #account button:active{
 
 .mySlides img {
     width: 100%;
-   }
+}
 
 h1#tazzo {
     z-index: -20;
@@ -502,21 +504,23 @@ footer div:hover {
     height: 20px;
     width: 20px;
     background: #6497b1;
-    border-color: #011f4b ;
+    border-color: #011f4b;
     border: solid;
 }
 
 
-#myKid .filters .button-group-pills input{
+#myKid .filters .button-group-pills input {
     display: none;
 }
-#myKid .filters .button-group-pills div{
+
+#myKid .filters .button-group-pills div {
     line-height: 25px;
-    text-align:center;
+    text-align: center;
     bottom: 15px;
     text-align: center;
-vertical-align: middle;
+    vertical-align: middle;
 }
+
 #myKid .control--radio .control__indicator {
     border-radius: 50%;
 }
@@ -527,7 +531,7 @@ vertical-align: middle;
 
 
 #myKid .control input:checked~.control__indicator {
-    background: #6497b1 ;
+    background: #6497b1;
 }
 
 .center {
@@ -592,7 +596,7 @@ vertical-align: middle;
 
 #myKid .button-group-pills .btn.active {
     border-color: #6497b1;
-    background-color: #6497b1 ;
+    background-color: #6497b1;
     color: #FFF;
     box-shadow: none;
 }
@@ -601,23 +605,25 @@ vertical-align: middle;
     background-color: #6497b1;
     color: #FFF;
 }
-#myKid #submitButton{
-    position:absolute;
-    margin-top:10px;
-    bottom:10;
+
+#myKid #submitButton {
+    position: absolute;
+    margin-top: 10px;
+    bottom: 10;
     width: fit-content;
     height: 30px;
-    right:15px;
-    border:2px solid #6497b1  ;
+    right: 15px;
+    border: 2px solid #6497b1;
     background: transparent;
     border-radius: 8px;
-    color:#4a4e4d   ;
+    color: #4a4e4d;
     text-align: center;
     padding: 0 5px;
     cursor: pointer;
 }
-#myKid #submitButton:hover{
-    background: #6497b1 ;
+
+#myKid #submitButton:hover {
+    background: #6497b1;
     color: white;
 }
 
@@ -628,247 +634,168 @@ h3 {
     margin-bottom: 20px;
 }
 
-#myKid .filters h3{
-    margin:5px 0;
-    font-size: 17px;;
+#myKid .filters h3 {
+    margin: 5px 0;
+    font-size: 17px;
+    ;
 }
-#myKid .filters label{
+
+#myKid .filters label {
     font-size: 12px;
-    color:rgb(85, 83, 83);
+    color: rgb(85, 83, 83);
 }
-#myKid .filters .purpose-input{
+
+#myKid .filters .purpose-input {
     margin: 5px auto;
     position: relative;
     left: 25%;
     transform: translateX(-30%);
 }
-#myKid .filters input[type='checkbox']{
+
+#myKid .filters input[type='checkbox'] {
     font-size: 10px;
 }
 
 
 /*******price slider ***/
- 
-.price-slider{
-    position: relative;
-    left: 0;
-    padding: 0 auto;
-    border-bottom: 1px solid rgb(211, 211, 210);
-    margin: 5px auto;
-    box-shadow: 3px 3px 4px 0px grey;
-    border-right: 1px solid rgb(211, 211, 210);
-    border-left: 1px solid rgb(211, 211 ,210);
-    border-radius: 10px;
-    padding: 10px 5px;
-    width: 340px;
-    height: 110px;
-  }
-  .wrapper {
-    display: table;
-    width: 95%;
-    margin: auto
-    
-  }
-  
-  .wrapper .container {
-    max-width: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  .slider-wrapper {
-    width: 270px;
-    display: inline-block;
-    position: relative;
-    font-family: arial;
-    margin: 15px 5px 0 5px;
-  }
-  
-  .ui-slider {
-    background: #efefef;
-    border: 1px solid #d2d2d2;
-    height: 10px;
-    position: relative;
-    border-radius: 100px;
-  }
-  
-  .ui-slider-range {
-    background: #6497b1;
-    height: 20px;
-    position: absolute;
-   
-    transform: translateY(-1px);
-  }
-  #slider-range{
-    height: 20px;
-  }
-  
-  .ui-slider-range:after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-  }
-  
-  .ui-slider-handle {
-    background: #6497b1;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    display: block;
-    transform: translate(-50%, -50%);
-    border-radius: 100px;
-    z-index: 10;
-    cursor: move;
-    cursor: grab;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-    box-shadow: inset -2px -2px 6px 2px rgba(0, 0, 0, 0.1);
-    transition: width 0.1s;
-  }
-  
-  .ui-slider-handle:focus {
-    outline: none;
-  }
-  
-  .ui-slider-handle:active {
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-  }
-  
-  .ui-state-active {
-    width: 22px;
-  }
-  
-  .range-wrapper {
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .range {
-    background: #fff;
-    white-space: nowrap;
-    border: 1px solid #6497b1;
-    border-radius: 5px;
-    font-size: 10px;
-    letter-spacing: 0.02em;
-    color: rgb(8, 6, 6);
-    width: 120px;
-    z-index: 10;
-    position: relative;
-  }
-  
-  .range:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 67px solid transparent;
-    border-right: 67px solid transparent;
-    border-top: 6px solid #d2d2d2;
-  }
-  
-  .range-value {
-    width: 50px;
-    padding: 8px 0;
-    text-align: center;
-    display: inline-block;
-    transition: background 0.1s;
-  }
-  
-  .range-divider {
-    width: 1px;
-    display: inline-block;
-  }
-  
-  .range-divider:after {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgb(149, 219, 136);
-    content: '';
-  }
-  
-  .range-alert {
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background: #fff;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    border: 1px solid #d2d2d2;
-    color: #0E0E0E;
-    line-height: 15px;
-    transition: right 0.2s;
-  }
-  
+.price-slider input {
+    box-shadow: 0;
+    outline: 0;
+}
 
-  .range-alert.active {
-    right: -15px;
-  }
-  
-  .marker {
+.price-slider .range-slider {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    height: 6em;
+}
+
+.price-slider .range-slider svg,
+.price-slider .range-slider input[type=range] {
     position: absolute;
-    top: 100%;
-    padding-top: 7px;
-    font-size: 10px;
-    color: rgb(20, 19, 19);
-    letter-spacing: 0.05em;
-    transform: translateX(-50%);
-  }
-  
-  .marker:after {
-    content: '';
-    width: 1px;
-    height: 8px;
-    background: #d2d2d2;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .marker-0:after {
-    display: none;
-  }
-  
-  .marker-25 {
-    left: 25%;
-  }
-  
-  .marker-50 {
-    left: 50%;
-  }
-  
-  .marker-75 {
-    left: 75%;
-  }
-  
-  .marker-100 {
-    right: 0;
-    transform: translateX(50%);
-  }
-  
-  .marker-100:after {
-    display: none;
-  }
+    left: 0;
+    bottom: 0;
+}
+
+.price-slider input[type=number] {
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.6em;
+    -moz-appearance: textfield;
+}
+
+.price-slider input[type=number]::-webkit-outer-spin-button,
+.price-slider input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.price-slider input[type=number]:invalid,
+.price-slider input[type=number]:out-of-range {
+    border: 2px solid #ff6347;
+}
+
+.price-slider input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+.price-slider input[type=range]:focus {
+    outline: none;
+}
+
+.price-slider input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #2497e3;
+}
+
+.price-slider input[type=range]:focus::-ms-fill-lower {
+    background: #2497e3;
+}
+
+.price-slider input[type=range]:focus::-ms-fill-upper {
+    background: #2497e3;
+}
+
+.price-slider input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #2497e3;
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+.price-slider input[type=range]::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+.price-slider input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #2497e3;
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+.price-slider input[type=range]::-moz-range-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+}
+
+.price-slider input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.price-slider input[type=range]::-ms-fill-lower,
+.price-slider input[type=range]::-ms-fill-upper {
+    background: #2497e3;
+    border-radius: 1px;
+    box-shadow: none;
+    border: 0;
+}
+
+.price-slider input[type=range]::-ms-thumb {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 0px 0px #000;
+    border: 1px solid #2497e3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #a1d0ff;
+    cursor: pointer;
+}
+
 /******end price slider ***/
-  
+
 
 /************For My Kid End****************/
 /* Slideshow container */
@@ -887,42 +814,53 @@ h1#slider-bg {
     z-index: 34;
     position: absolute;
 }
+
 .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
     height: 178px;
-  }
-  
-  /* Hide the images by default */
-  .slideshow-container .mySlides {
+}
+
+/* Hide the images by default */
+.slideshow-container .mySlides {
     display: none;
-  }
-  
+}
 
 
-  
-  /* Fading animation */
-  .slideshow-container .fade {
+
+
+/* Fading animation */
+.slideshow-container .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 3s;
     animation-name: fade;
     animation-duration: 3s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-  
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
 /********Splash Page ******/
 
-  #getstarted{
+#getstarted {
     position: absolute;
     background: #ffffff;
     background-position: center;
@@ -936,7 +874,7 @@ h1#slider-bg {
     height: 534px;
     z-index: 100;
     padding: 2px 0;
-  }
+}
 
 .startButton {
     position: absolute;
@@ -951,7 +889,3 @@ h1#slider-bg {
     bottom: 17px;
     padding: 2px 10px;
 }
-
-
-
-
