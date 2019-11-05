@@ -173,6 +173,8 @@ header #profile_photo{
     font-weight: bold;
     vertical-align: bottom;
     min-width: 100px;
+    color: white;
+    ;
     
 }
 
@@ -180,11 +182,12 @@ header #profile_photo img{
     position: relative;
     border-radius: 50%;
     top: 6px;
+    right:2px;
     margin-bottom: 6px;
     background: transparent;
     transition: 0.3s all ease;
-    height: 45px; 
-    width: 60px !important;
+    height: 40px; 
+    width: 55px !important;
     padding: 0 6px;
     white-space: pre-line;
     z-index: 1000;
@@ -243,12 +246,12 @@ ul {
   .user-menu .user-menu-link {
     display: block;
     text-decoration: none;
-    color: #444;
+    color: #6497b1;
     font-size: 14px;
     padding: 5px 10px;
   }
   .user-menu .user-menu-link:hover {
-    background-color: #4183c4;
+    background-color: #6497b1;
     color: #fff;
   }
   .user-menu:before {
@@ -476,6 +479,11 @@ footer div:hover {
     background: rgba(167, 164, 164, 0.377);
     transition: 0.3s all ease;
 }
+/*********************/
+/*****MyDeals********/
+
+
+
 
 /*********/
 /** login */

@@ -239,7 +239,7 @@ function renderSearchResult(input) {
 }
 
 function renderProducts() {
-    console.log("heere")
+    
     var xhttp = new XMLHttpRequest();
     $("#Amazon-cards").html("<i class='fa fa-spinner fa-spin preloader'></i>");
     xhttp.open("GET", "https://gettoys.herokuapp.com/get", true);
@@ -254,15 +254,16 @@ function renderProducts() {
                 dataArray.push(data[product])
             }
 
-            //Generate Cards
+            //Generate no  of  Cards to show 
             var noOfProducts = Math.floor(Math.random() * 6 + 8);
-            //Select cards to show
+            //Select indexes of cards to show
             let products = [];
             while (products.length < noOfProducts) {
                 var random = Math.floor(Math.random() * 84 + 0);
                 if (products.indexOf(random) === -1)
                     products.push(random);
             }
+            console.log(products)
             // document.getElementById("Amazon-cards").innerHTML = "";
             var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
 
@@ -336,7 +337,7 @@ function renderProducts() {
             
                 </div>
             </div>`;
-              //  document.getElementById("Amazon-cards").innerHTML += htmll;
+                document.getElementById("Amazon-cards").innerHTML += htmll;
             }
 
         }
