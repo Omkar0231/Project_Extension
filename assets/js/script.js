@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     renderProducts();
     $('.startButton').on('click', function () {
-        $('#getstarted').html("")
+        console.log("hi")
         $('#getstarted').css('display', 'none');
         $('#toLogin').prop("enable", true);
 
@@ -105,13 +105,13 @@ $(document).ready(function () {
     });
 
 
-    // $('.price').hover(function(){
-    //     $(this).html(`<a class='price' href='https://singhrohaajay.co'> 
-    //     <span>Buy Now <br></span>
-    // </a>`);
-    // });
+    $('.price, .price span').on('click',function(){
+        console.log("hi")
+        window.location="https://amazon.in"
+        
+    });
     var typingTimer; //timer identifier
-    var doneTypingInterval = 2000; //time in ms, 5 second for example
+    var doneTypingInterval = 5000; //time in ms, 5 second for example
     
 
     //on keyup, start the countdown
@@ -141,7 +141,7 @@ $(document).ready(function () {
 function renderSearchResult(input) {
     var xhttp = new XMLHttpRequest();
     $("#Amazon-cards").html("");
-    xhttp.open("GET", "https://gettoys.herokuapp.com/get/description/" + input, true);
+    xhttp.open("GET", "https://gettoys.herokuapp.com/get/content/" + input, true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -375,8 +375,8 @@ function callPreloader(element, time) {
     }, time);
 }
 
-// var slideIndex = 1;
-// showSlides(slideIndex);
+var slideIndex = 1;
+showSlides(slideIndex);
 
 function showSlides() {
     var i;
@@ -413,6 +413,7 @@ function showSlides() {
     setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
+// showSlides()
 // function showSlides() {
 //     var i;
 //     var slides = document.getElementsByClassName("mySlides");
