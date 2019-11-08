@@ -1,18 +1,18 @@
 document.cookie = 'same-site-cookie=foo; SameSite=Lax';
 document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 $(document).ready(function () {
-    
-     $('#toLogin').prop("disabled", true);
 
-    
-    $('.startButton').on('click', function () {
-        $('#getstarted').html("")
-        $('#getstarted').css('display', 'none');
-        $('#toLogin').prop("disabled", false);
-        renderProducts();
-        //callPreloader('#myDeals', 2000);
+    //$('#toLogin').prop("disabled", true);
 
-    });
+
+    // $('.startButton').on('click', function () {
+    //     $('#getstarted').html("")
+    //     $('#getstarted').css('display', 'none');
+    //     $('#toLogin').prop("disabled", false);
+    renderProducts();
+    //     //callPreloader('#myDeals', 2000);
+
+    // });
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
     var selector = $(".tabs").find(".selector");
@@ -52,59 +52,138 @@ $(document).ready(function () {
         }
     });
 
-    
-    
-    $('#submitButton').on('click', function () {
+    $('#submitButton').on('click', function (e) {
         callPreloader('#myDeals', 500);
     });
-
-
-    $('.price .price::after').on('click',function(){
-        console.log("h")
-        let target = (this).attr('href');
-        window.open(target)
-    });
+    var search_icon = $("#search div span").html();
     var typingTimer; //timer identifier
-    var doneTypingInterval = 5000; //time in ms, 5 second for example
-    
-
+    var doneTypingInterval = 3000; //time in ms, 5 second for example
+    var $input = $('#searched');
     //on keyup, start the countdown
-    $("#searched").keyup(function () {
+    $input.on('keyup', function () {
         clearTimeout(typingTimer);
+        $("#search div input").css('width', "73%");
+        $("#search div span").html("Searching ...")
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
     });
-
-    //on keydown, clear the countdown 
-    $("#searched").on('keydown', function () {
+    $input.on('keydown', function () {
         clearTimeout(typingTimer);
     });
 
-    //user is "finished typing," do something
     function doneTyping() {
-        let input=$("#searched").val();
-        renderSearchResult(input);
-        //do something
+        let value = $("#searched").val();
+        fetchSearchResult(value);
     }
-    // $("#searched").keyup(function () {
-    //     let input = $(this).val();
-    //     renderSearchResult(input);
-    // })
-    $('#cowbell').on('click',function(){
-        console.log("hello")
+   
+    
+    $(".ranges").on("change",function(){
+        console.log("jn")
     })
+console.log("hello",$(".ranges").val())
+    
+
+
+    $(function () {
+
+        $('#slider-range').slider({
+            range: true,
+            min: 500,
+            max: 10000,
+            step: 500,
+            values: [1000, 5000]
+        });
+
+        $('.ui-slider-range').append($('.range-wrapper'));
+
+        $('.range').html('<span class="range-value">&#8377; ' + $('#slider-range').slider("values", 0).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span><span class="range-divider"></span><span class="range-value">&#8377; ' + $("#slider-range").slider("values", 1).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span>');
+        $('.ui-slider-handle, .ui-slider-range').on('mousedown', function () {
+            $('.gear-large').addClass('active');
+        });
+        $(document).on('mouseup', function () {
+            if ($('.gear-large').hasClass('active')) {
+                $('.gear-large').removeClass('active');
+            }
+        });
+
+        var gearOneAngle = 0,
+            gearTwoAngle = 0,
+            rangeWidth = $('.ui-slider-range').css('width');
+
+        $('.gear-one').css('transform', 'rotate(' + gearOneAngle + 'deg)');
+        $('.gear-two').css('transform', 'rotate(' + gearTwoAngle + 'deg)');
+
+        $('#slider-range').slider({
+            slide: function (event, ui) {
+
+
+                $('.range').html('<span class="range-value">&#8377; ' + ui.values[0].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span><span class="range-divider"></span><span class="range-value">&#8377; ' + ui.values[1].toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + '</span>');
+
+                var previousVal = parseInt($(this).data('value'));
+
+                $(this).data({
+                    'value': parseInt(ui.value)
+                });
+                if (ui.values[0] == ui.value) {
+                    if (previousVal > parseInt(ui.value)) {
+                        gearOneAngle -= 7;
+                        $('.gear-one').css('transform', 'rotate(' + gearOneAngle + 'deg)');
+                    } else {
+                        gearOneAngle += 7;
+                        $('.gear-one').css('transform', 'rotate(' + gearOneAngle + 'deg)');
+                    }
+
+                } else {
+
+                    if (previousVal > parseInt(ui.value)) {
+                        gearOneAngle -= 7;
+                        $('.gear-two').css('transform', 'rotate(' + gearOneAngle + 'deg)');
+                    } else {
+                        gearOneAngle += 7;
+                        $('.gear-two').css('transform', 'rotate(' + gearOneAngle + 'deg)');
+                    }
+
+                }
+
+                if (ui.values[1] === 10000) {
+                    if (!$('.range-alert').hasClass('active')) {
+                        $('.range-alert').addClass('active');
+                    }
+                } else {
+                    if ($('.range-alert').hasClass('active')) {
+                        $('.range-alert').removeClass('active');
+                    }
+                }
+            }
+        });
+
+        $('.range, .range-alert').on('mousedown', function (event) {
+            event.stopPropagation();
+        });
+
+    });
+
+
 });
-(function() {
+
+
+
+
+var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
+
+(function () {
     var parent = document.querySelector(".range-slider");
     if (!parent) return;
-    
     var rangeS = parent.querySelectorAll("input[type=range]"),
-            numberS = parent.querySelectorAll("input[type=number]");
+        numberS = parent.querySelectorAll("input[type=number]");
 
-    rangeS.forEach(function(el) {
-        el.oninput = function() {
+
+    rangeS.forEach(function (el) {
+        el.oninput = function () {
+            console.log("hello", rangeS, numberS)
+
             var slide1 = parseFloat(rangeS[0].value),
-                    slide2 = parseFloat(rangeS[1].value);
-                    console.log("hello")
+                slide2 = parseFloat(rangeS[1].value);
+
 
             if (slide1 > slide2) {
                 [slide1, slide2] = [slide2, slide1];
@@ -118,10 +197,10 @@ $(document).ready(function () {
         };
     });
 
-    numberS.forEach(function(el) {
-        el.oninput = function() {
+    numberS.forEach(function (el) {
+        el.oninput = function () {
             var number1 = parseFloat(numberS[0].value),
-                    number2 = parseFloat(numberS[1].value);
+                number2 = parseFloat(numberS[1].value);
 
             if (number1 > number2) {
                 var tmp = number1;
@@ -134,8 +213,12 @@ $(document).ready(function () {
         };
     });
 })();
-function renderSearchResult(input) {
+
+function fetchSearchResult(input) {
+
     var xhttp = new XMLHttpRequest();
+    $("#search div input").css('width', "90%");
+    $("#search div span").html("<i class='fa fa-search text-grey' aria-hidden='true'></i>")
     $("#Amazon-cards").html("");
     xhttp.open("GET", "https://gettoys.herokuapp.com/get/content/" + input, true);
     xhttp.send();
@@ -147,101 +230,118 @@ function renderSearchResult(input) {
             var response = xhttp.responseText;
             data = JSON.parse(response);
             data = data["product"];
-            dataArray = []
-            for (var i in data) {
-                dataArray.push(data[i])
+            if (data[0] == ("404")) {
+                noProductsFound()
+            } else {
+                dataArray = []
+                for (var i in data) {
+                    dataArray.push(data[i])
+                }
+                renderSearch(dataArray)
             }
-            // //Generate Cards
-            var noOfProducts = dataArray.length;
-            //Select cards to show
 
-
-            document.getElementById("Amazon-cards").innerHTML = "";
-            var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
-
-            for (var i = 0; i < noOfProducts; i++) {
-                // var productIndex = dataArray[i];
-                let product = dataArray[i];
-                console.log(product)
-                let price = Number(product["price"]);
-                let discount = Math.floor(Math.random() * 50 + 5);
-                let discountedPrice = Math.floor(price - (price * discount) / 100);
-
-
-                var htmll = `<div class=' row blog-card'>
-                <div class='col-4 meta'>
-                    <div class='ribbon ribbon-top-left'><span>`
-                htmll += categories[Math.floor(Math.random() * 5 + 0)];
-                htmll += `</span></div>
-                    <div class='photo'>
-                        <img
-                            src='`;
-                htmll += product['image_link'];
-                htmll += ` '>
-                    </div>
-                    <div class=' ribbon-bottom-left'><span>`;
-                htmll += product["age_group"][0] + "-" + product["age_group"][1];
-                htmll += ` years</span></div>
-            
-                </div>
-                <div class='col-8 row description'>
-                    <div class='col-6'>
-                        <p>`;
-                let name = product["title"];
-                var nameArr = name.split(" ", 2);
-                name = nameArr.join(" ");
-                htmll += name;
-                htmll += `</p>
-                        <h6>&#8377;`;
-                htmll += discountedPrice;
-                htmll += `  <strike>&#8377;`;
-                htmll += price;
-                htmll += `</strike></h6>
-                        <small>`;
-                htmll += product['description'].substring(0, 80);
-                htmll += ` </small>
-            
-                    </div>
-                    <div class='col-6 discount'>
-                        <a class='price' href='`;
-                htmll += product['amazon_link'];
-                htmll += `' >
-                            <span>`;
-                htmll += discount;
-                htmll += `% Discount <br></span>
-                        </a>
-            
-                        <ul>
-            
-                            <li>`;
-                let skill = product['skills_tags'][0];
-                skill = skill.charAt(0).toUpperCase() + skill.slice(1);
-                htmll += skill
-                htmll += `</li>
-                            <li> `;
-                skill = product['skills_tags'][1];
-                skill = skill.charAt(0).toUpperCase() + skill.slice(1);
-                htmll += skill;
-                htmll += `</li>
-                        </ul>
-                    </div>
-            
-            
-                </div>
-            </div>`;
-                document.getElementById("Amazon-cards").innerHTML += htmll;
-                document.getElementById("Amazon-cards").innerHTML += alreadyPresent;
-
-            }
 
         }
     };
 }
 
-function renderProducts() {
+function renderSearch(dataArray) {
+    if (dataArray.length == 0) {
+        noProductsFound()
+    } else if (dataArray.length > 10) {
+        createHTML(dataArray.slice(0, 9))
+    } else {
+        createHTML(dataArray)
+    }
+}
+
+function noProductsFound() {
+    document.getElementById("Amazon-cards").innerHTML = ("<div class='notoys'><i class='fa fa-frown-o' aria-hidden='true'></i> No toys found!</div>")
+}
+
+function createHTML(dataArray) {
+    console.log(dataArray)
+    var html_content = "";
+    for (var i = 0; i < dataArray.length; i++) {
+        let product = dataArray[i];
+
+        let price = Number(product["price"]);
+        let discount = Math.floor(Math.random() * 50 + 5);
+        let discountedPrice = Math.floor(price - (price * discount) / 100);
+
+
+        html_content += `<div class=' row blog-card'>
+        <div class='col-4 meta'>
+            <div class='ribbon ribbon-top-left'><span>`
+        html_content += categories[Math.floor(Math.random() * 5 + 0)];
+        html_content += `</span></div>
+            <div class='photo'>
+                <img
+                    src='`;
+        html_content += product['image_link'];
+        html_content += ` '>
+            </div>
+            <div class=' ribbon-bottom-left'><span>`;
+        html_content += product["age_group"][0] + "-" + product["age_group"][1];
+        html_content += ` years</span></div>
     
+        </div>
+        <div class='col-8 row description'>
+            <div class='col-6'>
+                <p>`;
+        let name = product["title"];
+        var nameArr = name.split(" ", 2);
+        name = nameArr.join(" ");
+        html_content += name;
+        html_content += `</p>
+                <h6>&#8377;`;
+        html_content += discountedPrice;
+        html_content += `  <strike>&#8377;`;
+        html_content += price;
+        html_content += `</strike></h6>
+                <small>`;
+        html_content += product['description'].substring(0, 80);
+        html_content += ` </small>
+    
+            </div>
+            <div class='col-6 discount'>
+                <a class='price ' href=`;
+        html_content += product['amazon_link'];
+        html_content += ` ><span>
+                     `;
+        html_content += discount;
+        html_content += `% Discount </span>
+         </a>
+            <ul>
+           <li>`;
+        let skill = product['skills_tags'][0];
+        skill = skill.charAt(0).toUpperCase() + skill.slice(1);
+        html_content += skill
+        html_content += `</li>
+                    <li> `;
+        skill = product['skills_tags'][1];
+        skill = skill.charAt(0).toUpperCase() + skill.slice(1);
+        html_content += skill;
+        html_content += `</li>
+                </ul>
+            </div>
+    
+    
+        </div>
+    </div>`;
+
+    }
+    //document.getElementById("Amazon-cards").innerHTML += html_content;
+    //activate_links()
+
+}
+
+function renderProducts() {
+    $("#searched").val('');
     var xhttp = new XMLHttpRequest();
-    $("#Amazon-cards").html("<i class='fa fa-spinner fa-spin preloader'></i>");
+    var html_content = "";
+    let spinner = "<i class='fa fa-spinner fa-spin preloader'></i>";
+    $("#Amazon-cards").html(spinner);
     xhttp.open("GET", "https://gettoys.herokuapp.com/get", true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
@@ -263,9 +363,8 @@ function renderProducts() {
                 if (products.indexOf(random) === -1)
                     products.push(random);
             }
-            console.log(products)
-            // document.getElementById("Amazon-cards").innerHTML = "";
-            var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
+
+
 
             for (var i = 0; i < noOfProducts; i++) {
                 var productIndex = products[i];
@@ -276,20 +375,20 @@ function renderProducts() {
                 let discountedPrice = Math.floor(price - (price * discount) / 100);
 
 
-                var htmll = `<div class=' row blog-card'>
+                html_content += `<div class=' row blog-card'>
                 <div class='col-4 meta'>
                     <div class='ribbon ribbon-top-left'><span>`
-                htmll += categories[Math.floor(Math.random() * 5 + 0)];
-                htmll += `</span></div>
+                html_content += categories[Math.floor(Math.random() * 5 + 0)];
+                html_content += `</span></div>
                     <div class='photo'>
                         <img
                             src='`;
-                htmll += product['image_link'];
-                htmll += ` '>
+                html_content += product['image_link'];
+                html_content += ` '>
                     </div>
                     <div class=' ribbon-bottom-left'><span>`;
-                htmll += product["age_group"][0] + "-" + product["age_group"][1];
-                htmll += ` years</span></div>
+                html_content += product["age_group"][0] + "-" + product["age_group"][1];
+                html_content += ` years</span></div>
             
                 </div>
                 <div class='col-8 row description'>
@@ -298,47 +397,48 @@ function renderProducts() {
                 let name = product["title"];
                 var nameArr = name.split(" ", 2);
                 name = nameArr.join(" ");
-                htmll += name;
-                htmll += `</p>
+                html_content += name;
+                html_content += `</p>
                         <h6>&#8377;`;
-                htmll += discountedPrice;
-                htmll += `  <strike>&#8377;`;
-                htmll += price;
-                htmll += `</strike></h6>
+                html_content += discountedPrice;
+                html_content += `  <strike>&#8377;`;
+                html_content += price;
+                html_content += `</strike></h6>
                         <small>`;
-                htmll += product['description'].substring(0, 80);
-                htmll += ` </small>
+                html_content += product['description'].substring(0, 80);
+                html_content += ` </small>
             
                     </div>
                     <div class='col-6 discount'>
-                        <a class='price' href='`;
-                htmll += product['amazon_link'];
-                htmll += `' >`
-                //             <span>`;
-                // htmll += discount;
-                // htmll += `% Discount <br></span>
-                   htmll+=`     </a>
-            
-                        <ul>
-            
-                            <li>`;
+                        <a class='price ' href=`;
+                html_content += product['amazon_link'];
+                html_content += ` ><span>
+                             `;
+                html_content += discount;
+                html_content += `% Discount </span>
+                 </a>
+                    <ul>
+                   <li>`;
                 let skill = product['skills_tags'][0];
                 skill = skill.charAt(0).toUpperCase() + skill.slice(1);
-                htmll += skill
-                htmll += `</li>
+                html_content += skill
+                html_content += `</li>
                             <li> `;
                 skill = product['skills_tags'][1];
                 skill = skill.charAt(0).toUpperCase() + skill.slice(1);
-                htmll += skill;
-                htmll += `</li>
+                html_content += skill;
+                html_content += `</li>
                         </ul>
                     </div>
             
             
                 </div>
             </div>`;
-                document.getElementById("Amazon-cards").innerHTML += htmll;
+
             }
+            // document.getElementById("Amazon-cards").innerHTML.replace(spinner, '')
+            //document.getElementById("Amazon-cards").innerHTML += html_content;
+            //activate_links()
 
         }
     };
@@ -350,7 +450,6 @@ function callPreloader(element, time) {
     if (element.match("#myKid")) {
         cardsContent = $("#myDeals").html();
     }
-    console.log(cardsContent)
     $(element).html("<i class='fa fa-spinner fa-spin preloader'></i>");
     setTimeout(function () {
         $(element).html(content);
@@ -367,28 +466,39 @@ function callPreloader(element, time) {
     }, time);
 }
 
-var slideIndex = 0;
-showSlides();
+// var slideIndex = 0;
+// showSlides();
 
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+// function showSlides() {
+//     var i;
+//     var slides = document.getElementsByClassName("mySlides");
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//     }
 
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    }
-    slides[slideIndex].style.display = "block";
-    slideIndex++;
-    setTimeout(showSlides, 2400); 
-}
+//     if (slideIndex >= slides.length) {
+//         slideIndex = 0;
+//     }
+
+//     slides[slideIndex].style.display = "block";
+//     slideIndex++;
+//     setTimeout(showSlides, 2400);
+// }
 
 /* Profile Photo DropDown */
 
-document.querySelector('.mini-photo-wrapper').addEventListener('click', function() {
-    document.querySelector('.menu-container').classList.toggle('active');
-  });
+// document.querySelector('.mini-photo-wrapper').addEventListener('click', function () {
+//     document.querySelector('.menu-container').classList.toggle('active');
+// });
 
+// function activate_links() {
+//     var links = document.getElementsByClassName("price");
+//     for (var i = 0; i < links.length; i++) {
+//         links[i].addEventListener('click', function (event) {
+//             console.log("log")
+//             let target = this.getAttribute('href');
+//             window.open(target)
+//         }, false);
+//     }
+// }
 

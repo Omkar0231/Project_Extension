@@ -11,15 +11,16 @@
     
     "permissions": ["activeTab", "declarativeContent", "storage","identity", "https://accounts.google.com/*", "https://www.googleapis.com/*","https://graph.facebook.com/"],
     "background": {
-        "scripts": ["assets/js/jquery.js","assets/js/script.js"],
+        "scripts": ["assets/js/background.js","assets/js/script.js"],
         "persistent": false
 
     },
 
- 
+    "omnibox": { "keyword" : "nt" },
 
     "browser_action": {
         "default_popup": "homePage/index.html",
+        "default_title":"Tazzo: Toys for your Kids",
         "default_icon": {
             "16": "assets/images/logo.png",
             "32": "assets/images/logo.png",
@@ -28,6 +29,7 @@
         }
 
     },
+   
     "icons": {
         "16": "assets/images/logo.png",
         "32": "assets/images/logo.png",
