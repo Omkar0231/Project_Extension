@@ -340,11 +340,7 @@ ul {
     border-radius: 50px;
     transition-duration: 0.6s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
     background: #6497b1;
-    /* background: -moz-linear-gradient(45deg, #6497b1 0%, #011f4b  100%);
-    background: -webkit-linear-gradient(45deg, #6497b1 0%, #011f4b  100%);
-    background: linear-gradient(45deg, #6497b1 0%, #011f4b  100%); */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
 }
 
@@ -401,19 +397,10 @@ ul {
 /********/
 
 
-.mySlides img {
+.mySlides img,.getStartedSlides img {
     width: 100%;
 }
 
-h1#tazzo {
-    z-index: -20;
-    position: absolute;
-    text-align: center;
-    top: 33%;
-    left: 18%;
-    color: #9E9E9E;
-    font-size: 100px;
-}
 
 .tab-content {
     overflow: scroll;
@@ -495,6 +482,15 @@ footer div:hover {
     -webkit-transform: translate(-50%, 100%);
     transform: translate(-15%, 100%);
 
+}
+/********/
+
+.filter-result{
+    position: absolute;
+    top: 60%;
+    left: 53%;
+    transform: translate(-50%,-40%);
+    color: #6497b1;
 }
 
 
@@ -734,7 +730,7 @@ footer div:hover {
     color: #FFF;
 }
 
-#myKid #submitButton {
+#myKid #filter {
     position: absolute;
     margin-top: 10px;
     bottom: 10;
@@ -748,12 +744,17 @@ footer div:hover {
     text-align: center;
     padding: 0 5px;
     cursor: pointer;
+    z-index: 5;
+    transition: 0.3s all ease;
 }
 
-#myKid #submitButton:hover {
+#myKid #filter:hover {
     background: #6497b1;
     color: white;
+    transform: scale(1.1);
+    transition: 0.3s all ease;
 }
+
 
 h3 {
     text-align: center;
@@ -795,22 +796,24 @@ h3 {
     border-bottom: 1px solid rgb(211, 211, 210)
   
   }
-.wrapper {
+  .wrapper {
     display: table;
     width: 95%;
-    margin: auto
+    margin: auto;
+    margin-top: 6%;
     
   }
   
   .wrapper .container {
-    max-width: 100%;
+    width: 100%;
+    margin: 0;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
   }
   
   .slider-wrapper {
-    width: 270px;
+    width: 300px;
     display: inline-block;
     position: relative;
     font-family: arial;
@@ -826,11 +829,9 @@ h3 {
   }
   
   .ui-slider-range {
-    background: rgb(248, 213, 17);
+    background: #6497b1;
     height: 20px;
     position: absolute;
-    border-top: 1px solid rgba(76, 236, 12, 0.836);
-    border-bottom: 1px solid rgba(76, 236, 12, 0.836);
     transform: translateY(-1px);
   }
   #slider-range{
@@ -849,7 +850,7 @@ h3 {
   }
   
   .ui-slider-handle {
-    background: rgb(149, 219, 136);
+    background: #6497b1 ;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -858,9 +859,7 @@ h3 {
     transform: translate(-50%, -50%);
     border-radius: 100px;
     z-index: 10;
-    background: linear-gradient(rgba(87, 114, 76, 0.836), rgb(110, 105, 76));
     cursor: move;
-    /* fallback if grab cursor is unsupported */
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
@@ -892,7 +891,7 @@ h3 {
   .range {
     background: #fff;
     white-space: nowrap;
-    border: 1px solid rgb(149, 219, 136);
+    border: 1px solid #6497b1;
     border-radius: 5px;
     font-size: 10px;
     letter-spacing: 0.02em;
@@ -932,7 +931,7 @@ h3 {
     left: 50%;
     width: 1px;
     height: 100%;
-    background: rgb(149, 219, 136);
+    background: #6497b1;
     content: '';
   }
   
@@ -1001,80 +1000,7 @@ h3 {
   .marker-100:after {
     display: none;
   }
-  
-  .gear-wrapper {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    backface-visibility: hidden;
-    width: 120px;
-    height: 20px;
-    overflow: hidden;
-  }
-  
-  .gear-large {
-    width: 40px;
-    height: 40px;
-    background: #d2d2d2;
-    border-radius: 100px;
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    transform-origin: 50% 50%;
-    transition: top 0.15s;
-  }
-  
-  .gear-large:after {
-    position: absolute;
-    content: '';
-    width: 28px;
-    height: 28px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #e8e8e8;
-    border-radius: 100px;
-  }
-  
-  .gear-large:nth-child(2) {
-    background: #d2d2d2;
-    left: auto;
-    right: 18px;
-  }
-  
-  .gear-large:nth-child(2) .gear-tooth {
-    background: #d2d2d2;
-  }
-  
-  .gear-large.active {
-    top: 4px;
-  }
-  
-  .gear-tooth {
-    width: 22%;
-    height: 114%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: 0 0;
-    background: #d2d2d2;
-    border-radius: 2px;
-  }
-  
-  .gear-tooth:nth-child(2) {
-    transform: rotate(90deg) translate(-50%, -50%);
-  }
-  
-  .gear-tooth:nth-child(3) {
-    transform: rotate(45deg) translate(-50%, -50%);
-  }
-  
-  .gear-tooth:nth-child(4) {
-    transform: rotate(-45deg) translate(-50%, -50%);
-  }
+
   
 /******end price slider ***/
 
@@ -1082,57 +1008,17 @@ h3 {
 /************For My Kid End****************/
 /* Slideshow container */
 
-h1#slider-bg {
-    z-index: 3;
-    position: absolute;
-    text-align: center;
-    left: 33%;
-    top: 33%;
-    font-size: -webkit-xxx-large;
-    color: grey;
-}
-
-.mySlides img {
-    z-index: 34;
-    position: absolute;
-}
-
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-    height: 178px;
-}
-
-/* Hide the images by default */
-.slideshow-container .mySlides {
-    display: none;
-}
-
-
-
-
 /* Fading animation */
 .slideshow-container .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 3s;
+    -webkit-animation-duration: 5s;
     animation-name: fade;
-    animation-duration: 3s;
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-
-    to {
-        opacity: 1
-    }
+    animation-duration: 5s;
 }
 
 @keyframes fade {
     from {
-        opacity: .4
+        opacity: .3
     }
 
     to {

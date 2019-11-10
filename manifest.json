@@ -11,7 +11,7 @@
     
     "permissions": ["activeTab", "declarativeContent", "storage","identity", "https://accounts.google.com/*", "https://www.googleapis.com/*","https://graph.facebook.com/"],
     "background": {
-        "scripts": ["assets/js/background.js","assets/js/script.js"],
+        "scripts": ["assets/js/background.js","assets/js/jquery.js","assets/js/script.js"],
         "persistent": false
 
     },

@@ -19,10 +19,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
@@ -30,8 +26,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-    <script src="../assets/js/jquery-ui.js"></script>
+
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/styleCard.css">
@@ -45,27 +40,19 @@
 </head>
 
 <body>
-
-
-    <!-- <div id="getstarted" class="slideshow-container">
-        <!-- Full-width images with number and caption text 
-        <h1 id="tazzo">Tazzo</h1>
-        <div class="mySlides ">
+    <div id="getstarted" >
+        <div class=" getStartedSlides">
             <img src="../assets/images/indexBanner.jpg">
         </div>
-        <div class="mySlides ">
+        <div class=" getStartedSlides ">
             <img src="../assets/images/indexBanner2.jpg">
         </div>
-        <div class="mySlides ">
-            <img src="../assets/images/indexBanner.jpg">
-        </div>
         <button class="startButton">Let's Get Started</button>
-    </div> -->
+    </div>
 
     <header class="row">
         <div id="brand" class="col-5">
             <a class="navbar-brand" href="#">
-                <!-- <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> -->
                 Tazzo
             </a>
         </div>
@@ -75,7 +62,6 @@
         <div id="account" class="col-3 ">
             <button type="button" class="btn btn-dark" id="toLogin">Signup</button> Avail offers
         </div>
-
         <div class="user-menu-wrap">
             <a class="mini-photo-wrapper" href="#">
                 <div id="profile_photo" class="col-3" hidden>
@@ -89,27 +75,16 @@
                 </ul>
             </div>
         </div>
-
-
-
-
-
     </header>
-
-
 
     <section id="tabsDivision">
         <nav class="tabs row">
 
-            <a href="#myDeals" class="active" data-toggle="tab"><i class="fa fa-gift"></i>My Deals</a>
+            <a href="#myDeals" class="active" id="myDealsTab" data-toggle="tab"><i class="fa fa-gift"></i>My Deals</a>
             <a href="#myKid" data-toggle="tab"><i class="fa fa-child"></i>For My Kid</a>
             <div class="selector"></div>
         </nav>
-
     </section>
-
-
-
 
     <section id="search" class="row">
         <!-- Search form -->
@@ -125,17 +100,12 @@
         <div class="col-12 tab-pane active" id="myDeals">
             <div class="section" id="Amazon-cards">
                 <i class='fa fa-spinner fa-spin preloader'></i>
-
-
             </div>
 
         </div>
-
         <div class="col-12 tab-pane  " id="myKid">
             <!-- Slideshow container -->
             <div class="slideshow-container">
-                <h1 id="slider-bg">Tazzo</h1>
-                <!-- Full-width images with number and caption text -->
                 <div class="mySlides ">
                     <img src="../assets/images/slider-1.jpg" style="width:100%">
                 </div>
@@ -149,142 +119,117 @@
                 </div>
             </div>
             <br>
-
             <div class="filters">
-                <form>
-                    <h3>Age Group</h3>
-                    <div class="center">
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-thermometer-empty"></i>0-4 Years
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-thermometer-half"></i>4-10 Years
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-thermometer-three-quarters"></i>10-14 Years
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-thermometer-full"></i>14-18 Years
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
-
-                    <h3>Gender</h3>
-                    <div class="button-group-pills text-center " data-toggle="buttons">
-                        <label class="btn btn-default active boys">
-                            <input type="radio" name="gender">
-                            <div>BOYS</div>
-                        </label>
-
-                        <label class="btn btn-default girls">
-                            <input type="radio" name="gender">
-                            <div>GIRLS</div>
-                        </label>
-                    </div>
-
-
-                    <h3>Price</h3>
-                    <div class="col-12 price-slider">
-                        <!-- <div class="wrapper">
-                            <div class="container">
-    
-                                <div class="slider-wrapper">
-                                    <div id="slider-range"></div>
-    
-                                    <div class="range-wrapper">
-                                        <div class="range"></div>
-                                        <div class="range-alert">+</div>
-    
-                                        <div class="gear-wrapper">
-                                            <div class="gear-large gear-one">
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                            </div>
-                                            <div class="gear-large gear-two">
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                                <div class="gear-tooth"></div>
-                                            </div>
-                                        </div>
-    
-                                    </div>
-    
-                                    <div class="marker marker-0">&#8377; 500</div>
-                                    <div class="marker marker-25">&#8377; 2,500</div>
-                                    <div class="marker marker-50">&#8377; 5,000</div>
-                                    <div class="marker marker-75">&#8377; 7,500</div>
-                                    <div class="marker marker-100">&#8377; 10,000+</div>
-                                </div>
-    
-                            </div>
-                        </div> -->
-                        <input type="range" class="ranges" value="50" min="0" max="100" step="5">
-    
-                    </div>
-
-                    <h3>Skills</h3>
-                    <div class="center">
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-scissors"></i>Creativity
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-line-chart"></i>Intelligence
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-heart"></i>Emotional
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-audio-description"></i>Verbal Ability
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-share-alt"></i>Social
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-
-                        <label class="control control--checkbox">
-                            <i id="icon" class="fa fa-arrows-alt"></i>Spatial
-                            <input type="checkbox" />
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
-                    <h3>Purpose of Buying</h3>
-                    <label class="purpose-input">
-                        <div class="form-inline active-cyan-4 col-12">
-                            <input class="form-control form-control-sm " type="text" placeholder="Eg: Birthday"
-                                aria-label="Search"
-                                style="width:280px;left: 30px;position: relative;margin-bottom: 50px;">
-                            <!-- <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"
-                                          aria-hidden="true"></i></span> -->
-                        </div>
+                <h3>Age Group</h3>
+                <div class="center">
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-thermometer-empty"></i>0-4 Years
+                        <input type="checkbox" class="age_check" value="0 4" />
+                        <div class="control__indicator"></div>
                     </label>
-                    <button id="submitButton" class="btn ">Find Toys</button>
-                </form>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-thermometer-half"></i>4-10 Years
+                        <input type="checkbox" class="age_check" value="4 10" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-thermometer-three-quarters"></i>10-14 Years
+                        <input type="checkbox" class="age_check" value="10 14" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-thermometer-full"></i>14-18 Years
+                        <input type="checkbox" class="age_check" value="14 18" />
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
+
+                <h3>Gender</h3>
+                <div class="button-group-pills text-center " data-toggle="buttons">
+                    <label class="btn btn-default active boys">
+                        <input type="radio" name="gender" checked value="M">
+                        <div>BOYS</div>
+                    </label>
+
+                    <label class="btn btn-default girls">
+                        <input type="radio" name="gender" value="F">
+                        <div>GIRLS</div>
+                    </label>
+                </div>
+                <h3>Price</h3>
+                <div class="col-12 price-slider">
+                    <div class="wrapper">
+                        <div class="container">
+
+                            <div class="slider-wrapper">
+                                <div id="slider-range"></div>
+
+                                <div class="range-wrapper">
+                                    <div class="range"></div>
+                                    <div class="range-alert">+</div>
+                                </div>
+                                <div class="marker marker-0">&#8377; 100</div>
+                                <div class="marker marker-25">&#8377; 1,250</div>
+                                <div class="marker marker-50">&#8377; 2,500</div>
+                                <div class="marker marker-75">&#8377; 3,750</div>
+                                <div class="marker marker-100">&#8377; 5,000+</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Skills</h3>
+                <div class="center">
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-scissors"></i>Creativity
+                        <input type="checkbox" value="Creativity" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-line-chart"></i>Intelligence
+                        <input type="checkbox" value="Intelligence" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-heart"></i>Emotional
+                        <input type="checkbox" value="Emotional" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-audio-description"></i>Verbal Ability
+                        <input type="checkbox" value="Verbal Ability" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-share-alt"></i>Social
+                        <input type="checkbox" value="Social" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <label class="control control--checkbox">
+                        <i id="icon" class="fa fa-arrows-alt"></i>Spatial
+                        <input type="checkbox" value="Spatial" class="skill_check" />
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
+                <h3>Purpose of Buying</h3>
+                <label class="purpose-input">
+                    <div class="form-inline active-cyan-4 col-12">
+                        <input class="form-control form-control-sm " type="text" placeholder="Eg: Birthday"
+                            aria-label="Search" style="width:280px;left: 30px;position: relative;margin-bottom: 50px;">
+                        <!-- <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"
+                                          aria-hidden="true"></i></span> -->
+                    </div>
+                </label>
+                <a href="#myDeals" class="" data-toggle="tab" id="filter">Let's Go</a>
             </div>
         </div>
 
@@ -314,9 +259,8 @@
             <p><i class="fa fa-question-circle" aria-hidden="true"></i> Help</p>
         </div>
     </footer>
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/background.js"></script>
     <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/background.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/oauth.js"></script>
     <!-- <script src="../assets/js/sample_support.js"></script> -->
