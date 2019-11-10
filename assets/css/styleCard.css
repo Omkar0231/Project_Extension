@@ -75,7 +75,8 @@
 .blog-card .description div h6 {
   color: #6497b1;
   font-size: 1.1em;
-  font-weight: bold
+  font-weight: bold;
+  font-family:Arial;
 }
 
 .blog-card .description div h6 strike {
@@ -83,6 +84,7 @@
   font-size: 0.8em;
   font-weight: 400;
   color: #565757;
+  font-family:Arial;
 }
 
 .blog-card .description div small {

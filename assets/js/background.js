@@ -1,13 +1,13 @@
 chrome.runtime.onInstalled.addListener(function () {
-    console.log("Installed for the first time");
+    chrome.storage.local.set({"installed": true}, function() {
+        console.log('Value is set to ' + true);
+      });
 
-    $('#toLogin').prop("disabled", true);
-    $('.startButton').on('click', function () {
-        $('#getstarted').html("")
-        $('#getstarted').css('display', 'none');
-        $('#toLogin').prop("disabled", false);
-        renderProducts()
 
+});
+chrome.runtime.onSuspend.addListener(function () {
+    console.log("Unloading.");
+    chrome.browserAction.setBadgeText({
+        text: ""
     });
-
 });

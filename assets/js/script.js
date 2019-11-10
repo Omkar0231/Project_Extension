@@ -1,13 +1,25 @@
 $(document).ready(function () {
-    $('#toLogin').prop("disabled", true);
-    showGetStartSlides()
-    $('.startButton').on('click', function () {
-        $('#getstarted').html("")
-        $('#getstarted').css('display', 'none');
-        $('#toLogin').prop("disabled", false);
-        renderProducts()
 
+    var storage = chrome.storage.local;
+    chrome.storage.local.get(['installed'], function (result) {
+        console.log('Value currently is ' + result.key);
+        if (result.key == undefined) {
+            $('#toLogin').prop("disabled", true);
+            showGetStartSlides()
+            $('.startButton').on('click', function () {
+                $('#getstarted').html("")
+                $('#getstarted').css('display', 'none');
+                $('#toLogin').prop("disabled", false);
+                renderProducts()
+
+            });
+        } else {
+            $('#toLogin').prop("disabled", false);
+            $('#getstarted').html("")
+            $('#getstarted').css('display', 'none');
+        }
     });
+
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
     var selector = $(".tabs").find(".selector");
