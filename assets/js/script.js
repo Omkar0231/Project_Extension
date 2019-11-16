@@ -1,15 +1,17 @@
 $(document).ready(function () {
 
     var storage = chrome.storage.local;
-    chrome.storage.local.get(['installed'], function (result) {
-        console.log('Value currently is ' + result.key);
-        if (result.key == undefined) {
+    chrome.storage.sync.get(['value'], function (result) {
+        console.log('Value currently is ' + result.value);
+        if (result.value == "true") {
             $('#toLogin').prop("disabled", true);
             showGetStartSlides()
             $('.startButton').on('click', function () {
                 $('#getstarted').html("")
                 $('#getstarted').css('display', 'none');
                 $('#toLogin').prop("disabled", false);
+                chrome.storage.sync.set({ "value": "false" }, function () {
+                });
                 renderProducts()
 
             });
@@ -17,6 +19,7 @@ $(document).ready(function () {
             $('#toLogin').prop("disabled", false);
             $('#getstarted').html("")
             $('#getstarted').css('display', 'none');
+            renderProducts()
         }
     });
 
@@ -75,8 +78,11 @@ $(document).ready(function () {
     $input.on('keyup', function () {
         if ($("#searched").val() != "") {
             clearTimeout(typingTimer);
-            $("#search div input").css('width', "73%");
-            $("#search div span").html("Searching ...")
+            $("#search div input").removeClass('col-11')
+            $("#search div input").addClass('col-9')
+            $("#search div span").addClass('col-3')
+            $("#search div span ").css('padding', '0.25rem')
+            $("#search div span").html("<i>Searching </i>")
             typingTimer = setTimeout(doneTyping, doneTypingInterval);
         }
 
@@ -240,8 +246,12 @@ var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
 
 function fetchSearchResult(input) {
     var xhttp = new XMLHttpRequest();
-    $("#search div input").css('width', "90%");
+    $("#search div input").removeClass('col-9')
+    $("#search div input").addClass('col-11')
+    $("#search div span").removeClass('col-3')
+    $("#search div span ").css('padding', '0.4rem')
     $("#search div span").html("<i class='fa fa-search text-grey' aria-hidden='true'></i>")
+    $("#search div span").addClass('col-1')
     xhttp.open("GET", "https://gettoys.herokuapp.com/get/content/" + input, true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
@@ -286,7 +296,7 @@ function createHTML(dataArray) {
 
         let price = Number(product["price"]);
         let discount = Math.floor(Math.random() * 50 + 5);
-        let discountedPrice = Math.floor(price - (price * discount) / 100);
+        let discountedPrice = Math.floor(price + (price * discount) / 100);
 
 
         html_content += `<div class=' row blog-card'>
@@ -311,9 +321,9 @@ function createHTML(dataArray) {
         html_content += name;
         html_content += `</p>
                 <h6>&#8377;`;
-        html_content += discountedPrice;
-        html_content += `  <strike>&#8377;`;
         html_content += price;
+        html_content += `  <strike>&#8377;`;
+        html_content += discountedPrice;
         html_content += `</strike></h6>
                 <small>`;
         html_content += product['description'].substring(0, 80);

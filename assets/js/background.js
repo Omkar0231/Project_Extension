@@ -1,9 +1,6 @@
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.local.set({"installed": true}, function() {
-        console.log('Value is set to ' + true);
-      });
-
-
+    chrome.storage.sync.set({ "value": "true" }, function () {
+    });
 });
 chrome.runtime.onSuspend.addListener(function () {
     console.log("Unloading.");

@@ -11,7 +11,7 @@
     
     "permissions": ["activeTab", "declarativeContent", "storage","identity", "https://accounts.google.com/*", "https://www.googleapis.com/*","https://graph.facebook.com/"],
     "background": {
-        "scripts": ["assets/js/background.js","assets/js/jquery.js","assets/js/script.js"],
+        "scripts": ["assets/js/background.js"],
         "persistent": false
 
     },
@@ -35,6 +35,6 @@
         "48": "assets/images/logo.png",
         "128": "assets/images/logo.png"
     },
-    "content_security_policy": "script-src 'self' ; script-src-elem 'self' https://gettoys.herokuapp.com/ http://netdna.bootstrapcdn.com https://stackpath.bootstrapcdn.com http://code.jquery.com/ https://maxcdn.bootstrapcdn.com/ http://maxcdn.bootstrapcdn.com/ https://cdnjs.cloudflare.com http://cdnjs.cloudflare.com https://code.jquery.com http://ajax.googleapis.com/; object-src 'self'",
+    "content_security_policy": "script-src 'self' ; script-src-elem 'self' https://gettoys.herokuapp.com/ http://netdna.bootstrapcdn.com/ https://stackpath.bootstrapcdn.com http://code.jquery.com/ https://maxcdn.bootstrapcdn.com/ http://maxcdn.bootstrapcdn.com/ https://cdnjs.cloudflare.com http://cdnjs.cloudflare.com https://code.jquery.com http://ajax.googleapis.com/; object-src 'self'",
     "manifest_version": 2
 }
