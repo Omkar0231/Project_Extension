@@ -108,7 +108,7 @@ var googleProfileUserLoader = (function() {
     var fullname = user_info.name;
     var firstname = fullname.split(" ")[0];
     
-    user_info_div.innerHTML = "Hi, " + firstname;
+    user_info_div.innerHTML = "<h3>Hi, " + firstname+"</h3>";
     fetchImageBytes(user_info);
   }
 

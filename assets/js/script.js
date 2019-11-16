@@ -10,8 +10,9 @@ $(document).ready(function () {
                 $('#getstarted').html("")
                 $('#getstarted').css('display', 'none');
                 $('#toLogin').prop("disabled", false);
-                chrome.storage.sync.set({ "value": "false" }, function () {
-                });
+                chrome.storage.sync.set({
+                    "value": "false"
+                }, function () {});
                 renderProducts()
 
             });
@@ -131,7 +132,7 @@ $(document).ready(function () {
             min: 100,
             max: 5000,
             step: 100,
-            values: [500, 4000]
+            values: [100, 3000]
         });
 
         $('.ui-slider-range').append($('.range-wrapper'));
@@ -245,6 +246,10 @@ function filterOut(age_filter, skills_filter, price_range) {
 var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
 
 function fetchSearchResult(input) {
+    if(!$("#myDealsTab").hasClass('active')){
+        $('.tabs #myDealsTab').click();
+    }
+    $("#Amazon-cards").html("<i class='fa fa-spinner fa-spin preloader'></i><div class='filter-result'>Hold On!, Fetching Toys</div>");
     var xhttp = new XMLHttpRequest();
     $("#search div input").removeClass('col-9')
     $("#search div input").addClass('col-11')
@@ -295,7 +300,7 @@ function createHTML(dataArray) {
         let product = dataArray[i];
 
         let price = Number(product["price"]);
-        let discount = Math.floor(Math.random() * 50 + 5);
+        let discount = Math.floor(Math.random() * 25 + 5);
         let discountedPrice = Math.floor(price + (price * discount) / 100);
 
 

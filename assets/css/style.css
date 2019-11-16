@@ -153,45 +153,42 @@ header #account button {
     line-height: 25px;
     text-align: center;
     vertical-align: middle;
-    padding: 0 6px;
+    padding: 0 4px;
 }
-
 header #account button:hover {
     background: #011f4b;
     transition: 0.3s all ease;
     border: none;
-
 }
-
-header #account button:active {
-    border: none;
-    box-shadow: unset;
+header .user-menu-wrap {
+    position: absolute;
+    top: 0%;
+    right: 1% !important;
+    padding: 0 0.4rem;
 }
-
-header #profile_photo{
-    font-size: 14px;
-    font-weight: bold;
-    vertical-align: bottom;
-    min-width: 100px;
-    color: white;
-    ;
-    
+header #profile_photo {
+    align-content: center;
+    vertical-align: middle;
+    font-size: 0.8rem;
+    padding: 0 !important;
 }
-
-header #profile_photo img{
-    position: relative;
+header #profile_photo img {
     border-radius: 50%;
-    top: 6px;
-    right:2px;
-    margin-bottom: 6px;
+    padding: 0.4rem !important;
     background: transparent;
     transition: 0.3s all ease;
-    height: 40px; 
-    width: 55px !important;
-    padding: 0 6px;
-    white-space: pre-line;
-    z-index: 1000;
-    
+    height: 45px;
+    width: 45px !important;
+    white-space: normal;
+    z-index: 1000
+}
+header #profile_photo h3{
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgb(238, 234, 234);
+
 }
 
 /* Profile Photo DropDown */
@@ -202,59 +199,59 @@ ul {
     padding-left: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
-  }
-  
-  li{
-      width: 100%;
-  }
-  .user-menu-wrap {
-    position: relative;
-    width: 36px;
-    z-index: 1000;
-  }
-  
-  .mini-photo-wrapper {
+}
+
+li {
+    width: 100%;
+}
+
+.mini-photo-wrapper {
     display: block;
-  }
-  
-  .mini-photo {
+}
+
+.mini-photo {
     border-radius: 50%;
-  }
-  
-  .menu-container {
+}
+
+.menu-container {
     visibility: hidden;
     opacity: 0;
-  }
-  .menu-container.active {
+}
+
+.menu-container.active {
     visibility: visible;
     opacity: 1;
-    transition: all .3s ease-in-out;
-    
-  }
-  
-  .user-menu {
+    transition: all .2s ease;
+
+}
+
+.user-menu {
     position: absolute;
-    right: -60px;
+    right: 10%;
     background-color: #fff;
     width: 120px;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-  }
-  .user-menu .user-menu-link {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 8px;
+    z-index: 1000;
+}
+
+.user-menu .user-menu-link {
     display: block;
     text-decoration: none;
     color: #6497b1;
-    font-size: 14px;
+    font-size: 1rem;
     padding: 5px 10px;
-  }
-  .user-menu .user-menu-link:hover {
+}
+
+.user-menu .user-menu-link:hover {
     background-color: #6497b1;
     color: #fff;
-  }
-  .user-menu:before {
+}
+
+.user-menu:before {
     position: absolute;
     top: -16px;
     left: 72px;
@@ -263,8 +260,9 @@ ul {
     border: 8px solid transparent;
     border-bottom-color: #ccc;
     border-bottom-color: rgba(0, 0, 0, 0.15);
-  }
-  .user-menu:after {
+}
+
+.user-menu:after {
     position: absolute;
     top: -14px;
     left: 73px;
@@ -272,7 +270,7 @@ ul {
     content: "";
     border: 7px solid transparent;
     border-bottom-color: #fff;
-  }
+}
 
 /* Profile Photo DropDown */
 
@@ -363,16 +361,19 @@ ul {
     margin: 0;
     transition: all 0s ease;
 }
-#search div span{
-    font-size:1rem;
-    transition: all 0.1s ease;
+
+#search div span {
+    font-size: 1rem;
+    transition: all 0.0s ease;
     padding: 0.4rem;
 }
-#search div i{
+
+#search div i {
     cursor: pointer;
     font-size: 1rem;
-    transition: all 0.1s ease;;
-    
+    transition: all 0.0s ease;
+    ;
+
 
 }
 
@@ -397,7 +398,8 @@ ul {
 /********/
 
 
-.mySlides img,.getStartedSlides img {
+.mySlides img,
+.getStartedSlides img {
     width: 100%;
 }
 
@@ -473,9 +475,10 @@ footer div:hover {
     background: rgba(167, 164, 164, 0.377);
     transition: 0.3s all ease;
 }
+
 /*********************/
 /*****MyDeals********/
-.notoys{
+.notoys {
     position: relative;
     top: 100%;
     left: 50%;
@@ -483,13 +486,14 @@ footer div:hover {
     transform: translate(-15%, 100%);
 
 }
+
 /********/
 
-.filter-result{
+.filter-result {
     position: absolute;
     top: 60%;
     left: 53%;
-    transform: translate(-50%,-40%);
+    transform: translate(-50%, -40%);
     color: #6497b1;
 }
 
@@ -503,7 +507,7 @@ footer div:hover {
     left: 0;
     width: 100%;
     height: 490px;
-    background: url('../images/bg.jpg');
+    background: url('https://i.postimg.cc/MHZ2t26F/bg.jpg');
     background-position: center;
     background-repeat: repeat;
     background-size: 40% 40%;
@@ -787,58 +791,59 @@ h3 {
 
 
 /*******price slider ***/
-.price-slider{
+.price-slider {
     position: relative;
     left: 0;
     width: 100%;
     height: 120px;
     padding: 0 auto;
     border-bottom: 1px solid rgb(211, 211, 210)
-  
-  }
-  .wrapper {
+}
+
+.wrapper {
     display: table;
     width: 95%;
     margin: auto;
     margin-top: 6%;
-    
-  }
-  
-  .wrapper .container {
+
+}
+
+.wrapper .container {
     width: 100%;
     margin: 0;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-  }
-  
-  .slider-wrapper {
+}
+
+.slider-wrapper {
     width: 300px;
     display: inline-block;
     position: relative;
     font-family: arial;
     margin: 15px 5px 0 5px;
-  }
-  
-  .ui-slider {
+}
+
+.ui-slider {
     background: #efefef;
     border: 1px solid #d2d2d2;
     height: 10px;
     position: relative;
     border-radius: 100px;
-  }
-  
-  .ui-slider-range {
+}
+
+.ui-slider-range {
     background: #6497b1;
     height: 20px;
     position: absolute;
     transform: translateY(-1px);
-  }
-  #slider-range{
+}
+
+#slider-range {
     height: 20px;
-  }
-  
-  .ui-slider-range:after {
+}
+
+.ui-slider-range:after {
     content: '';
     width: 100%;
     height: 1px;
@@ -847,10 +852,10 @@ h3 {
     top: 0;
     left: 0;
     opacity: 0.3;
-  }
-  
-  .ui-slider-handle {
-    background: #6497b1 ;
+}
+
+.ui-slider-handle {
+    background: #6497b1;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -865,30 +870,30 @@ h3 {
     cursor: -webkit-grab;
     box-shadow: inset -2px -2px 6px 2px rgba(0, 0, 0, 0.1);
     transition: width 0.1s;
-  }
-  
-  .ui-slider-handle:focus {
+}
+
+.ui-slider-handle:focus {
     outline: none;
-  }
-  
-  .ui-slider-handle:active {
+}
+
+.ui-slider-handle:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
-  }
-  
-  .ui-state-active {
+}
+
+.ui-state-active {
     width: 22px;
-  }
-  
-  .range-wrapper {
+}
+
+.range-wrapper {
     position: absolute;
     top: -40px;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  .range {
+}
+
+.range {
     background: #fff;
     white-space: nowrap;
     border: 1px solid #6497b1;
@@ -899,9 +904,9 @@ h3 {
     width: 120px;
     z-index: 10;
     position: relative;
-  }
-  
-  .range:after {
+}
+
+.range:after {
     content: '';
     position: absolute;
     top: 100%;
@@ -910,22 +915,22 @@ h3 {
     border-left: 67px solid transparent;
     border-right: 67px solid transparent;
     border-top: 6px solid #d2d2d2;
-  }
-  
-  .range-value {
+}
+
+.range-value {
     width: 50px;
     padding: 8px 0;
     text-align: center;
     display: inline-block;
     transition: background 0.1s;
-  }
-  
-  .range-divider {
+}
+
+.range-divider {
     width: 1px;
     display: inline-block;
-  }
-  
-  .range-divider:after {
+}
+
+.range-divider:after {
     position: absolute;
     top: 0;
     left: 50%;
@@ -933,9 +938,9 @@ h3 {
     height: 100%;
     background: #6497b1;
     content: '';
-  }
-  
-  .range-alert {
+}
+
+.range-alert {
     width: 14px;
     height: 14px;
     position: absolute;
@@ -949,13 +954,13 @@ h3 {
     color: #0E0E0E;
     line-height: 15px;
     transition: right 0.2s;
-  }
-  
-  .range-alert.active {
+}
+
+.range-alert.active {
     right: -15px;
-  }
-  
-  .marker {
+}
+
+.marker {
     position: absolute;
     top: 100%;
     padding-top: 7px;
@@ -963,9 +968,9 @@ h3 {
     color: rgb(20, 19, 19);
     letter-spacing: 0.05em;
     transform: translateX(-50%);
-  }
-  
-  .marker:after {
+}
+
+.marker:after {
     content: '';
     width: 1px;
     height: 8px;
@@ -974,34 +979,34 @@ h3 {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  .marker-0:after {
+}
+
+.marker-0:after {
     display: none;
-  }
-  
-  .marker-25 {
+}
+
+.marker-25 {
     left: 25%;
-  }
-  
-  .marker-50 {
+}
+
+.marker-50 {
     left: 50%;
-  }
-  
-  .marker-75 {
+}
+
+.marker-75 {
     left: 75%;
-  }
-  
-  .marker-100 {
+}
+
+.marker-100 {
     right: 0;
     transform: translateX(50%);
-  }
-  
-  .marker-100:after {
-    display: none;
-  }
+}
 
-  
+.marker-100:after {
+    display: none;
+}
+
+
 /******end price slider ***/
 
 
