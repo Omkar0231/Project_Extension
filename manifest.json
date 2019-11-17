@@ -1,7 +1,7 @@
 {
     "name": "Tazzo: Toys for your Kid",
     "short_name": "Tazzo",
-    "version": "0.0.1.3",
+    "version": "0.0.1.4",
     "description": "A Toy Recommendation Engine",
     "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjvPw8n5zCFARCdoJv1fly7s0vr1Cpe/5P+eOJTOqFmEeiY093ZwmuCLtuF38VBVy0NT60HfgGntyvv8wJT/f9FWrjm5XO7vPSWkiAaT994zlO6dSA5Xr+R9uFO8BYDSiddCnMjFfAzahLjzSogrP/jjqsBirvRgPyv3mY0rdWXKd1oofy8XhE9wCCWI+gxfRNmiVnBe83fCmkNI7nAEmKvzqQwPEdpa0zFhpdxI1GLD5/TEQre0iKODEM23+AloeJUq8WlpB9wDLFmCDlf6DYAcehcPxfELLy1RtKXbHLo8965o5GQOr9SB2Jj9MfzQDgOucmyEMao3X/8ahIlZ7wwIDAQAB",
     "oauth2": {

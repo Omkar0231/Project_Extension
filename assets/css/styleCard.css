@@ -87,8 +87,8 @@
   font-family:Arial;
 }
 
-.blog-card .description div small {
-  margin-top: 100px;
+.blog-card .description div .toy_description {
+  margin-top: 120px !important;
   width: 20px;
   font-size: 0.7em;
   color: rgb(146, 144, 144);

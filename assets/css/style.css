@@ -482,9 +482,20 @@ footer div:hover {
     position: relative;
     top: 100%;
     left: 50%;
+    width: 100%;
     -webkit-transform: translate(-50%, 100%);
     transform: translate(-15%, 100%);
 
+}
+.notoysHeading{
+    position: relative;
+    font-size: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    left: 1;
+    width: fit-content !important;
+    border-bottom: 1px solid #6497b1;
 }
 
 /********/

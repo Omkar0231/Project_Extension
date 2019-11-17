@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     var storage = chrome.storage.local;
     chrome.storage.sync.get(['value'], function (result) {
-        console.log('Value currently is ' + result.value);
         if (result.value == "true") {
             $('#toLogin').prop("disabled", true);
             showGetStartSlides()
@@ -13,14 +12,14 @@ $(document).ready(function () {
                 chrome.storage.sync.set({
                     "value": "false"
                 }, function () {});
-                renderProducts()
+                renderProducts(true)
 
             });
         } else {
             $('#toLogin').prop("disabled", false);
             $('#getstarted').html("")
             $('#getstarted').css('display', 'none');
-            renderProducts()
+            renderProducts(true)
         }
     });
 
@@ -47,16 +46,15 @@ $(document).ready(function () {
         });
         if (href.match("#myKid")) {
             cardsContent = $("#myDeals").html();
-            showSlides();
         } else {
             if (cardsContent === '') {
-                renderProducts();
+                renderProducts(true);
             } else {
                 $("#myDeals").html(cardsContent);
             }
             cardsContent = "";
         }
-
+        activate_links();
     });
     $('#aboutUs,#help').on('click', function (e) {
         window.open('http://www.funcandi.com/')
@@ -73,7 +71,7 @@ $(document).ready(function () {
     });
 
     var typingTimer; //timer identifier
-    var doneTypingInterval = 3000; //time in ms, 5 second for example
+    var doneTypingInterval = 2000; //time in ms, 5 second for example
     var $input = $('#searched');
     //on keyup, start the countdown
     $input.on('keyup', function () {
@@ -212,9 +210,11 @@ function filterOut(age_filter, skills_filter, price_range) {
             if (products.length == 0) {
                 products = dataArray
             }
+
             products = products.filter(function (item) {
                 return item['price'] >= price_range[0] && item['price'] <= price_range[1]
             })
+
             if (products.length == 0) {
                 noProductsFound();
             }
@@ -224,6 +224,7 @@ function filterOut(age_filter, skills_filter, price_range) {
                 }
                 return this;
             }
+
             let products_withSkills = []
             for (i = 0; i < products.length; i++) {
                 for (j = 0; j < skills_filter.length; j++) {
@@ -236,7 +237,7 @@ function filterOut(age_filter, skills_filter, price_range) {
             if (products_withSkills.length == 0) {
                 renderSearch(products)
             } else {
-                createHTML(products_withSkills)
+                createHTML(products_withSkills, true)
             }
 
         }
@@ -246,7 +247,7 @@ function filterOut(age_filter, skills_filter, price_range) {
 var categories = ["Popular", "Trending", "On Sale", "Top Picks", "Featured"];
 
 function fetchSearchResult(input) {
-    if(!$("#myDealsTab").hasClass('active')){
+    if (!$("#myDealsTab").hasClass('active')) {
         $('.tabs #myDealsTab').click();
     }
     $("#Amazon-cards").html("<i class='fa fa-spinner fa-spin preloader'></i><div class='filter-result'>Hold On!, Fetching Toys</div>");
@@ -283,17 +284,19 @@ function renderSearch(dataArray) {
     if (dataArray.length == 0) {
         noProductsFound()
     } else if (dataArray.length > 10) {
-        createHTML(dataArray.slice(0, 9))
+        createHTML(dataArray.slice(0, 9), true)
     } else {
-        createHTML(dataArray)
+        createHTML(dataArray, true)
     }
 }
 
 function noProductsFound() {
     document.getElementById("Amazon-cards").innerHTML = (`<div class='notoys'><i class='fa fa-frown-o' aria-hidden='true'></i> No toys found!</div>`)
+    document.getElementById("Amazon-cards").innerHTML += ('<h3 class="notoysHeading"> You may like these toys!</h3>');
+    renderProducts(false)
 }
 
-function createHTML(dataArray) {
+function createHTML(dataArray, flag) {
     let container = document.getElementById("Amazon-cards");
     var html_content = "";
     for (var i = 0; i < dataArray.length; i++) {
@@ -321,8 +324,8 @@ function createHTML(dataArray) {
             <div class='col-6'>
                 <p>`;
         let name = product["title"];
-        var nameArr = name.split(" ", 2);
-        name = nameArr.join(" ");
+       // var nameArr = name.split(" ", 2);
+       // name = nameArr.join(" ");
         html_content += name;
         html_content += `</p>
                 <h6>&#8377;`;
@@ -330,8 +333,8 @@ function createHTML(dataArray) {
         html_content += `  <strike>&#8377;`;
         html_content += discountedPrice;
         html_content += `</strike></h6>
-                <small>`;
-        html_content += product['description'].substring(0, 80);
+                <small class="toy_description">`;
+        html_content += product['description'];
         html_content += ` </small>
     
             </div>
@@ -362,17 +365,24 @@ function createHTML(dataArray) {
     </div>`;
     }
     if (container != null) {
-        container.innerHTML = "";
+        if (flag) {
+            container.innerHTML = "";
+
+        }
         container.innerHTML += html_content;
-        activate_links()
     }
+    activate_links()
+
 }
 
-function renderProducts() {
-    $("#searched").val('');
+function renderProducts(flag) {
     var xhttp = new XMLHttpRequest();
-    let spinner = "<i class='fa fa-spinner fa-spin preloader'></i>";
-    $("#Amazon-cards").html(spinner);
+    if (flag) {
+        $("#searched").val('');
+        let spinner = "<i class='fa fa-spinner fa-spin preloader'></i>";
+        $("#Amazon-cards").html(spinner);
+    }
+
     xhttp.open("GET", "https://gettoys.herokuapp.com/get", true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
@@ -396,7 +406,7 @@ function renderProducts() {
                     toyCards.push(dataArray[random])
                 }
             }
-            createHTML(toyCards)
+            createHTML(toyCards, flag)
         }
     };
 }
@@ -419,6 +429,7 @@ function showGetStartSlides() {
 }
 
 var slideIndex = 0;
+showSlides()
 
 function showSlides() {
     var i;
@@ -432,7 +443,7 @@ function showSlides() {
     if (slides[slideIndex] != undefined) {
         slides[slideIndex].style.display = "block";
         slideIndex++;
-        setTimeout(showSlides, 2000);
+        setTimeout(showSlides, 2500);
     }
 }
 
